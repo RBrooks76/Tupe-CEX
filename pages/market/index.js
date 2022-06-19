@@ -79,8 +79,14 @@ const MarketScreen = ({coins}) => {
   const [vscurrency, setVscurrency] = useState('usd');
 
   const [count, setCount] = useState(20);
+  const [socketData, setSocketData] = useState([]);
 
   const apiFunction = async () => {
+
+    var socket = window.sessionStorage.getItem('market_websocket');
+    console.log(socket);
+    setSocketData(JSON.parse(socket));
+
     var all_coins = [];
     var all_symbols = [];
     var coin_list_string = "";
@@ -200,6 +206,8 @@ const MarketScreen = ({coins}) => {
                 result = num + '.' + value;
                 item.price_change_percentage_24h = parseFloat(result);
               }
+
+              item.pair = getItemPair1(item);
               
             }
           })
@@ -226,6 +234,23 @@ const MarketScreen = ({coins}) => {
     if (session_data === undefined) return [];
     const market_data = JSON.parse(session_data);
     const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH', 'BUSD'];
+    const result = [];
+    pair_list.map(item=>{
+      const name = coin_item.symbol + item.toLowerCase();
+      // const find_data = market_data.find(x=>x.s === name.toUpperCase());
+      if (find_data !== undefined) {
+        find_data.display_name = coin_item.symbol.toUpperCase() + "/" + item;
+        result.push(find_data);
+      }
+    });
+    return result;
+  }
+
+  const getItemPair1 = (coin_item) => {
+    // const session_data = window.sessionStorage.getItem('market_websocket');
+    // if (session_data === undefined) return [];
+    const market_data = socketData;
+    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
     const result = [];
     pair_list.map(item=>{
       const name = coin_item.symbol + item.toLowerCase();
@@ -273,7 +298,6 @@ const MarketScreen = ({coins}) => {
       };
       ws.onmessage = function (event) {
         const json = JSON.parse(event.data);
-        console.log(json);
 
         try {
           if (json.FROMSYMBOL !== undefined) {
@@ -304,9 +328,11 @@ const MarketScreen = ({coins}) => {
             if (doge !== undefined) topcoin.doge = [doge.current_price, doge.price_change_percentage_24h];
             if (shib !== undefined) topcoin.shib = [shib.current_price, shib.price_change_percentage_24h];
             setTopcoin({...topcoin});
+          } else {
+
           }
         } catch (err) {
-          //
+          // consolee.log(err);
         }
       }
     }
