@@ -225,7 +225,7 @@ const MarketScreen = ({coins}) => {
     const session_data = window.sessionStorage.getItem('market_websocket');
     if (session_data === undefined) return [];
     const market_data = JSON.parse(session_data);
-    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH', 'BUSD'];
+    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
     const result = [];
     pair_list.map(item=>{
       const name = coin_item.symbol + item.toLowerCase();
@@ -276,9 +276,6 @@ const MarketScreen = ({coins}) => {
         try {
           if (json.FROMSYMBOL !== undefined) {
             const new_data = cloneDeep(data);
-
-            if(json.FROMSYMBOL == 'HBTC' || json.FROMSYMBOL == 'RENBTC' || json.FROMSYMBOL == 'BTCST') console.log(json.FROMSYMBOL);
-            else console.log("@@@@@@@@@@@@@@@@@@@@@@");
 
             const insert_item = data.find(x=>x.symbol === json.FROMSYMBOL.toLowerCase());
             if (isNil(insert_item.price_change_percentage_24h)) insert_item.price_change_percentage_24h = 0;
