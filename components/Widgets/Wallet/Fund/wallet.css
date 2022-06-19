@@ -1,0 +1,44 @@
+.wallet .wallet-tabs {
+  display: flex;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.wallet .wallet-tabs .wallet-tab {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  cursor: pointer;
+}
+
+.wallet .wallet-tabs .wallet-tab.active {
+  color: #00b638;
+}
+
+.wallet .wallet-tabs :first-child {
+  margin-left: 0;
+}
+
+.wallet .wallet-btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+}
+
+.wallet .wallet-btn.active {
+  border: 1px solid #00b638;
+  background-color: #00b638;
+  color: #fff;
+}
+
+.text-green {
+  color: #00b638;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+  padding: 0.25rem;
+}

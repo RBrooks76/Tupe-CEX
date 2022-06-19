@@ -1,0 +1,24 @@
+.topcoins .list-box .item {
+    width: 300px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 15px 0 rgb(0 0 0 / 5%);
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 5%);
+    border: 1px solid #e3eaef;
+    padding: 15px 26px;
+    margin-right: 26.6px;
+    cursor: pointer;
+}
+
+
+.topcoins .list-box .item .icon.cover {
+    width: 24px;
+    height: 24px;
+}
+
+.topcoins .list-box .item>div:last-child {
+    margin-top: 10px;
+}
+
+.topcoins {
+    margin-bottom: 20px;
+}

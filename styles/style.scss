@@ -1,0 +1,53 @@
+
+.market-quotes-widget__field{
+  width: 150px !important;
+  background: yellow;
+  border: red;
+}
+
+.tv-embed-widget-wrapper{
+  background-color: yellow !important;
+}
+.trading-table{
+  tr {
+    height: 50px !important;
+  }
+  th {
+    padding-left: 10px !important;
+  }
+  td {
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 10px !important;
+  }
+  .trading-name {
+    width: 14%;
+  }
+  .trading-percent {
+    width: 10%;
+  }
+  .trading-change {
+    width: 13%;
+  }
+}
+.tooltip-area {
+  background-color: white;
+  position: abolute;
+  border: solid 1px lightgray !important;
+  position: absolute !important;
+  top: -50px !important;
+  left: 250px !important;
+  table {
+    font-size: 12px;
+    tr {
+      height: 40px !important;
+    }
+    td, th {
+      vertical-align: middle !important;
+    }
+
+    thead tr {
+      height: 30px !important;
+    }
+  }
+}
