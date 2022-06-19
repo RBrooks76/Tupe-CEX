@@ -277,7 +277,7 @@ const MarketScreen = ({coins}) => {
           if (json.FROMSYMBOL !== undefined) {
             const new_data = cloneDeep(data);
 
-            if(json.FROMSYMBOL == 'hbtc' || json.FROMSYMBOL == 'hbtc' || json.FROMSYMBOL == 'renbtc' || json.FROMSYMBOL == 'btcst') console.log(json.FROMSYMBOL);
+            if(json.FROMSYMBOL == 'HBTC' || json.FROMSYMBOL == 'RENBTC' || json.FROMSYMBOL == 'BTCST') console.log(json.FROMSYMBOL);
             else console.log("@@@@@@@@@@@@@@@@@@@@@@");
 
             const insert_item = data.find(x=>x.symbol === json.FROMSYMBOL.toLowerCase());
