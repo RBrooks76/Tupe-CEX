@@ -225,7 +225,7 @@ const MarketScreen = ({coins}) => {
     const session_data = window.sessionStorage.getItem('market_websocket');
     if (session_data === undefined) return [];
     const market_data = JSON.parse(session_data);
-    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
+    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH', 'BUSD'];
     const result = [];
     pair_list.map(item=>{
       const name = coin_item.symbol + item.toLowerCase();
@@ -273,10 +273,11 @@ const MarketScreen = ({coins}) => {
       };
       ws.onmessage = function (event) {
         const json = JSON.parse(event.data);
+        console.log(json);
+
         try {
           if (json.FROMSYMBOL !== undefined) {
             const new_data = cloneDeep(data);
-
             const insert_item = data.find(x=>x.symbol === json.FROMSYMBOL.toLowerCase());
             if (isNil(insert_item.price_change_percentage_24h)) insert_item.price_change_percentage_24h = 0;
             if (insert_item !== undefined && json.PRICE !== undefined) {
