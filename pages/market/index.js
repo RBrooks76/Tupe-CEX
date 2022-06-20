@@ -221,7 +221,7 @@ const MarketScreen = ({coins}) => {
     const session_data = window.sessionStorage.getItem('market_websocket');
     if (session_data === undefined) return [];
     const market_data = JSON.parse(session_data);
-    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH', 'BUSD'];
+    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
     const result = [];
     pair_list.map((item, index)=>{
       const name = coin_item.symbol + item.toLowerCase();
@@ -310,31 +310,30 @@ const MarketScreen = ({coins}) => {
 
 
   useEffect(() => {
-      const subs = [];
-      if (allSymbol.length === 0) return;
-      if (data.length === 0) return;
 
-      allSymbol.map((item, index)=>{
-        const push_item = '5~CCCAGG~' + item + '~USD';
-        subs.push(push_item);
-      });
+    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
+    var string = '';
 
-      const controller = new AbortController();
-      const apiCall = {action: 'SubAdd', subs};
-      const url = 'wss://stream.binance.com:9443/ws/kline_1m';
+    allSymbol.map((symbolName, symbolIndex)=>{
+      pair_list.map((pairName, pairIndex) => {
+        string += symbolName.toLowerCase() + pairName.toLowerCase() + ',';
+      })
+    });
+
+      const url = 'wss://stream.binance.com:9443/ws/' + string + '@kline_1m';
       const isBrowser = typeof window !== "undefined";
       const ws = isBrowser ? new WebSocket(url) : null;
 
-      if (!isNil(ws)) {
-        ws.onopen = (event) => {
-          ws.send(JSON.stringify(apiCall));
-        };
-        ws.onmessage = function (event) {
-          var data = JSON.parse(event.data);
+    if (!isNil(ws)) {
+      ws.onopen = (event) => {
+        ws.send(JSON.stringify(apiCall));
+      };
+      ws.onmessage = function (event) {
+        var data = JSON.parse(event.data);
 
-          console.log(data);
-        }
+        console.log(data);
       }
+    }
   }, [allSymbol]);
 
   const handleSearchValue = (e) => {
