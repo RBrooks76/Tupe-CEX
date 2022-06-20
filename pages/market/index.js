@@ -80,6 +80,7 @@ const MarketScreen = ({coins}) => {
 
   const [count, setCount] = useState(20);
 
+
   const apiFunction = async () => {
     var all_coins = [];
     var all_symbols = [];
