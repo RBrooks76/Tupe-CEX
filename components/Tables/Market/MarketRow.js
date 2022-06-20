@@ -106,15 +106,15 @@ const renderTooltip = (props) => <Tooltip {...props} className="tooltip-area">
         </td>
         <td className='kks_text_center'>
           <span>
-            {unit} {round(item.current_price)}
+            {unit} {item.current_price}
           </span>
         </td>
         <td className='kks_text_center'>
           <span className={price > 0 ? 'green': (price == '0.00' ? 'gray':'red')}>{price > 0 ? "" : ""} {price}%</span>
         </td>
-        <td className='kks_text_center githyvxt_center'>{round(item.high_24h)}</td>
-        <td className='kks_text_center'>{round(item.low_24h)}</td>
-        <td className='kks_text_center'>{(round(item.total_volume / 1000000))}M</td>
+        <td className='kks_text_center githyvxt_center'>{item.high_24h}</td>
+        <td className='kks_text_center'>{item.low_24h}</td>
+        <td className='kks_text_center'>{(item.total_volume)}M</td>
       </tr>
     </OverlayTrigger>
   );

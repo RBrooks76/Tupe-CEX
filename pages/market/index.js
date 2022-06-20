@@ -79,7 +79,38 @@ const MarketScreen = ({coins}) => {
   const [vscurrency, setVscurrency] = useState('usd');
 
   const [count, setCount] = useState(20);
+  const [coinList, setCoinList] = useState([]);
+  const [coinNameList, setCoinNameList] = useState([]);
 
+  const reduceDecimal = (item) => {
+    let dnum = item < 0 ? item - Math.ceil(item) : item - Math.floor(item);
+    let num = item - dnum;
+    let str = dnum < 0 ? String(dnum).slice(3) : String(dnum).slice(2);
+    let array = str.split('');
+    let index = 0;
+    let value = '';
+    let result = 0;
+
+    for(var i = 0 ; i < array.length; i++){
+      if(array[i] == 0) index = i;
+      else index = 0;
+    }
+    
+    if(num <= 0){
+      for (var j = index; j < index + 3; j++) {
+        value += '' + (array[j] != null ? array[j] : '');
+      }
+      result = num + '.' + value;
+      item = parseFloat(result);
+    } else {
+      for (var k = index; k < index + 2; k++) {
+        value += '' + (array[k] != null ? array[k] : '');
+      }
+      result = num + '.' + value;
+      item = parseFloat(result);
+    }
+    return item;
+  }
 
   const apiFunction = async () => {
     var all_coins = [];
@@ -87,129 +118,93 @@ const MarketScreen = ({coins}) => {
     var coin_list_string = "";
 
     let res = await axios.get(url1);
-      if (res && res.data) {
-        const new_data = [];
-        res.data.map((item, index)=>{
-          item.sort_number = index + 1;
-          if (isNil(item.price_change_percentage_24h)) item.price_change_percentage_24h = 0;
-          if (isNil(item.price_change_24h)) item.price_change_24h = 0;
-          if (isNil(item.high_24h)) item.high_24h = 0;
-          if (isNil(item.low_24h)) item.low_24h = 0;
-          if (tradeTypes[item.symbol.toUpperCase()] !== undefined && item.current_price !== undefined) tradeTypes[item.symbol.toUpperCase()] = item.current_price;
-          new_data.push(item);
+    if (res && res.data) {
+      const new_data = [];
+      res.data.map((item, index)=>{
+        item.sort_number = index + 1;
+        if (isNil(item.price_change_percentage_24h)) item.price_change_percentage_24h = 0;
+        if (isNil(item.price_change_24h)) item.price_change_24h = 0;
+        if (isNil(item.high_24h)) item.high_24h = 0;
+        if (isNil(item.low_24h)) item.low_24h = 0;
+        if (tradeTypes[item.symbol.toUpperCase()] !== undefined && item.current_price !== undefined) tradeTypes[item.symbol.toUpperCase()] = item.current_price;
+        new_data.push(item);
 
-          if (allSymbol.indexOf(item.symbol.toUpperCase()) === -1){
-            all_symbols.push(item.symbol.toUpperCase());
+        if (allSymbol.indexOf(item.symbol.toUpperCase()) === -1){
+          all_symbols.push(item.symbol.toUpperCase());
+        }
+
+        coin_list_string += item.id + ',';
+        
+      });
+      setTradePrice(tradeTypes);
+      all_coins = [...new_data];
+      const btc = res.data.find(x=>x.symbol === "btc");
+      const eth = res.data.find(x=>x.symbol === "eth");
+      const doge = res.data.find(x=>x.symbol === "doge");
+      const shib = res.data.find(x=>x.symbol === "shib");
+      if (btc !== undefined) topcoin.btc = [btc.current_price, btc.price_change_percentage_24h]; 
+      if (eth !== undefined) topcoin.eth = [eth.current_price, eth.price_change_percentage_24h];
+      if (doge !== undefined) topcoin.doge = [doge.current_price, doge.price_change_percentage_24h];
+      if (shib !== undefined) topcoin.shib = [shib.current_price, shib.price_change_percentage_24h];
+      setTopcoin({...topcoin});
+    }
+
+    res = await axios.get(url2);
+    if (res && res.data) {
+      const new_data_1 = [];
+      res.data.map((item, index)=>{
+        item.sort_number = index + data.length;
+        if (isNil(item.price_change_percentage_24h)) item.price_change_percentage_24h = 0;
+        if (isNil(item.price_change_24h)) item.price_change_24h = 0;
+        if (isNil(item.high_24h)) item.high_24h = 0;
+        if (isNil(item.low_24h)) item.low_24h = 0;
+        if (tradeTypes[item.symbol.toUpperCase()] !== undefined && item.current_price !== undefined) tradeTypes[item.symbol.toUpperCase()] = item.current_price;
+        new_data_1.push(item);
+
+        if (allSymbol.indexOf(item.symbol.toUpperCase()) === -1){
+          all_symbols.push(item.symbol.toUpperCase());
+        }
+
+        coin_list_string += item.id + ',';
+      });
+      setTradePrice(tradeTypes);
+      all_coins = all_coins.concat(new_data_1);
+    }
+
+    setCoinList(coin_list_string);
+   
+    
+    const routine = "https://api.coingecko.com/api/v3/simple/price?ids=" + coin_list_string + "&vs_currencies=" + vscurrency + "&include_24hr_vol=true&include_24hr_change=true";
+    res = await axios.get(routine).then( res => {
+      var namelist = [];
+
+      var keys = Object.keys(res.data);
+      keys.forEach(key =>{
+        namelist.push(key);
+      });
+
+      var datalist = all_coins;
+      namelist.map((name, index) => {
+        datalist.map((item, index) => {
+          if(name == item.id){
+            var name_24h_vol = vscurrency + "_24h_vol";
+
+            item.price_change_percentage_24h = reduceDecimal(item.price_change_percentage_24h);
+            item.total_volume = reduceDecimal(res.data[name][name_24h_vol]/ 1000000);
+
+            item.current_price = reduceDecimal(item.current_price);
+            item.high_24h = reduceDecimal(item.high_24h);
+            item.low_24h = reduceDecimal(item.low_24h);
+            item.price_change_24h = reduceDecimal(item.price_change_24h);
           }
-
-          coin_list_string += item.id + ',';
-          
-        });
-        setTradePrice(tradeTypes);
-        all_coins = [...new_data];
-        const btc = res.data.find(x=>x.symbol === "btc");
-        const eth = res.data.find(x=>x.symbol === "eth");
-        const doge = res.data.find(x=>x.symbol === "doge");
-        const shib = res.data.find(x=>x.symbol === "shib");
-        if (btc !== undefined) topcoin.btc = [btc.current_price, btc.price_change_percentage_24h]; 
-        if (eth !== undefined) topcoin.eth = [eth.current_price, eth.price_change_percentage_24h];
-        if (doge !== undefined) topcoin.doge = [doge.current_price, doge.price_change_percentage_24h];
-        if (shib !== undefined) topcoin.shib = [shib.current_price, shib.price_change_percentage_24h];
-        setTopcoin({...topcoin});
-      }
-
-      res = await axios.get(url2);
-      if (res && res.data) {
-        const new_data_1 = [];
-        res.data.map((item, index)=>{
-          item.sort_number = index + data.length;
-          if (isNil(item.price_change_percentage_24h)) item.price_change_percentage_24h = 0;
-          if (isNil(item.price_change_24h)) item.price_change_24h = 0;
-          if (isNil(item.high_24h)) item.high_24h = 0;
-          if (isNil(item.low_24h)) item.low_24h = 0;
-          if (tradeTypes[item.symbol.toUpperCase()] !== undefined && item.current_price !== undefined) tradeTypes[item.symbol.toUpperCase()] = item.current_price;
-          new_data_1.push(item);
-
-          if (allSymbol.indexOf(item.symbol.toUpperCase()) === -1){
-            all_symbols.push(item.symbol.toUpperCase());
-          }
-
-          coin_list_string += item.id + ',';
-        });
-        setTradePrice(tradeTypes);
-        all_coins = all_coins.concat(new_data_1);
-      }
-
-      // res = await axios.get('https://www.binance.com/bapi/composite/v1/public/marketing/symbol/list').then(res=>{
-      //   if (res && res.data && res.data.data) {
-      //     res.data.data.map(item=>{
-      //       const index = all_coins.findIndex(x=>x.symbol === item.name.toLowerCase());
-      //       if (index > -1) {
-      //         if (item.volume !== undefined) {
-      //           all_coins[index].total_volume = item.volume/1000000;
-      //         }
-      //       }
-      //     });
-      //     window.sessionStorage.setItem('market_data', JSON.stringify(all_coins))
-      //     setData(all_coins);
-      //     setAllSymbol([...all_symbols])
-      //     setLoaded(true);
-
-          
-      //   }
-      // });
-
-      const routine = "https://api.coingecko.com/api/v3/simple/price?ids=" + coin_list_string + "&vs_currencies=" + vscurrency + "&include_24hr_vol=true&include_24hr_change=true";
-      res = await axios.get(routine).then( res => {
-        var namelist = [];
-
-        var keys = Object.keys(res.data);
-        keys.forEach(key =>{
-          namelist.push(key);
-        });
-
-        var datalist = all_coins;
-        namelist.map((name, index) => {
-          datalist.map((item, index) => {
-            if(name == item.id){
-              var name_24h_vol = vscurrency + "_24h_vol";
-              item.total_volume = res.data[name][name_24h_vol];
-
-              let dnum = item.price_change_percentage_24h < 0 ? item.price_change_percentage_24h - Math.ceil(item.price_change_percentage_24h) : item.price_change_percentage_24h - Math.floor(item.price_change_percentage_24h);
-              let num = item.price_change_percentage_24h - dnum;
-              let str = dnum < 0 ? String(dnum).slice(3) : String(dnum).slice(2);
-              let array = str.split('');
-              let index = 0;
-              let value = '';
-              let result = 0;
-
-              for(var i = 0 ; i < array.length; i++){
-                if(array[i] == 0) index = i;
-                else index = 0;
-              }
-              
-              if(num <= 0){
-                for (var j = index; j < index + 3; j++) {
-                  value += '' + (array[j] != null ? array[j] : '');
-                }
-                result = num + '.' + value;
-                item.price_change_percentage_24h = parseFloat(result);
-              } else {
-                for (var k = index; k < index + 2; k++) {
-                  value += '' + (array[k] != null ? array[k] : '');
-                }
-                result = num + '.' + value;
-                item.price_change_percentage_24h = parseFloat(result);
-              }
-              
-            }
-          })
         })
-        setData(datalist);
-        setAllSymbol([...all_symbols])
-        setLoaded(true);
       })
+      setData(datalist);
+      setAllSymbol([...all_symbols]);
+      setLoaded(true);
+    })
   };
+
 
 
   useEffect(()=> {
@@ -228,7 +223,7 @@ const MarketScreen = ({coins}) => {
     const market_data = JSON.parse(session_data);
     const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH', 'BUSD'];
     const result = [];
-    pair_list.map(item=>{
+    pair_list.map((item, index)=>{
       const name = coin_item.symbol + item.toLowerCase();
       const find_data = market_data.find(x=>x.s === name.toUpperCase());
       if (find_data !== undefined) {
@@ -257,7 +252,7 @@ const MarketScreen = ({coins}) => {
     if (allSymbol.length === 0) return;
     if (data.length === 0) return;
 
-    allSymbol.map(item=>{
+    allSymbol.map((item, index)=>{
       const push_item = '5~CCCAGG~' + item + '~USD';
       subs.push(push_item);
     });
@@ -274,10 +269,10 @@ const MarketScreen = ({coins}) => {
       };
       ws.onmessage = function (event) {
         const json = JSON.parse(event.data);
-
         try {
           if (json.FROMSYMBOL !== undefined) {
             const new_data = cloneDeep(data);
+
             const insert_item = data.find(x=>x.symbol === json.FROMSYMBOL.toLowerCase());
             if (isNil(insert_item.price_change_percentage_24h)) insert_item.price_change_percentage_24h = 0;
             if (insert_item !== undefined && json.PRICE !== undefined) {
@@ -311,6 +306,35 @@ const MarketScreen = ({coins}) => {
       }
     }
     return () => controller.abort();
+  }, [allSymbol]);
+
+
+  useEffect(() => {
+      const subs = [];
+      if (allSymbol.length === 0) return;
+      if (data.length === 0) return;
+
+      allSymbol.map((item, index)=>{
+        const push_item = '5~CCCAGG~' + item + '~USD';
+        subs.push(push_item);
+      });
+
+      const controller = new AbortController();
+      const apiCall = {action: 'SubAdd', subs};
+      const url = 'wss://stream.binance.com:9443/ws/kline_1m';
+      const isBrowser = typeof window !== "undefined";
+      const ws = isBrowser ? new WebSocket(url) : null;
+
+      if (!isNil(ws)) {
+        ws.onopen = (event) => {
+          ws.send(JSON.stringify(apiCall));
+        };
+        ws.onmessage = function (event) {
+          var data = JSON.parse(event.data);
+
+          console.log(data);
+        }
+      }
   }, [allSymbol]);
 
   const handleSearchValue = (e) => {
@@ -364,7 +388,6 @@ const MarketScreen = ({coins}) => {
       setSortOrder(order);
     // }
   };
-
   const sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
 
   return (
@@ -439,7 +462,7 @@ const MarketScreen = ({coins}) => {
                 {loaded && sortedCoins.map((item, index) => (
                   <>
                     {index >= (current_page - 1) * count && index < current_page * count && (
-                      
+                          
                           <MarketRow key={item.id.toString()} item={JSON.parse(JSON.stringify(item))} index={index + 1} multiple={multiple} unit={unit}/>
                       
                     )}
