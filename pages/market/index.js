@@ -363,8 +363,8 @@ const MarketScreen = ({coins}) => {
               pair.p = reduceDecimal(eventData.v);
               result.push(pair);
             }
-            item.pair = [...result];
-            console.log(item);
+            popupName.pair = [...result];
+            console.log(popupName);
           })
         });
         setData(popup);
