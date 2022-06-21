@@ -388,10 +388,9 @@ const MarketScreen = ({coins}) => {
           popupName.pair = [];
           pair_list.map((pairName, pairIndex) => {
             const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
-            const find_data = eventData.data.find(x=>x.s === pair_name.toUpperCase());
-            const find_index = -1;
+            const find_data = eventData.data.find(x=>x.s == pair_name.toUpperCase());
             if (find_data !== undefined) {
-              find_index = popup.findIndex(x=>find_data.s.includes(x.name));
+              var find_index = popup.findIndex(x=>find_data.s.toLowerCase().includes(x.symbol.toLowerCase()));
               if (find_index > -1) {
                 find_data['display_name'] = (popupName.symbol.toLowerCase() +'/'+ pairName.toLowerCase()).toUpperCase();
                 popupName.pair.push(find_data);
@@ -400,6 +399,7 @@ const MarketScreen = ({coins}) => {
             }
           })
         });
+        // console.log(popup);
         // console.log(cnt);
         // console.log("@@@@@@@@@@@@@@@@@@:" + popup);
       }
