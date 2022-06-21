@@ -397,12 +397,14 @@ const MarketScreen = ({coins}) => {
             }
           })
         });
+        setData(popup);
+        console.log(popup);
         // console.log(popup);
         // console.log(cnt);
         // console.log("@@@@@@@@@@@@@@@@@@:" + popup);
-      }
-    }
-  }, [allSymbol]);
+    //   }
+    // }
+  }, [data]);
 
   const handleSearchValue = (e) => {
     const { value } = e.target;
