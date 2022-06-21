@@ -374,6 +374,8 @@ const MarketScreen = ({coins}) => {
     const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
     const isBrowser = typeof window !== "undefined";
     const ws = isBrowser ? new WebSocket(url) : null;
+    const controller = new AbortController();
+
     if (!isNil(ws)) {
       ws.onopen = (event) => {
       };
@@ -399,11 +401,10 @@ const MarketScreen = ({coins}) => {
         });
         setData(popup);
         console.log(popup);
-        // console.log(popup);
-        // console.log(cnt);
-        // console.log("@@@@@@@@@@@@@@@@@@:" + popup);
-    //   }
-    // }
+
+      }
+    }
+    return () => controller.abort();
   }, [data]);
 
   const handleSearchValue = (e) => {
