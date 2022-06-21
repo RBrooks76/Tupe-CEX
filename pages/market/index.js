@@ -360,6 +360,7 @@ const MarketScreen = ({coins}) => {
               result.push(find_data);
             }
             item.pair = [...result];
+            console.log(item);
           })
         });
         setData(popup);
