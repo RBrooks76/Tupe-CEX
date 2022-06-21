@@ -325,14 +325,14 @@ const MarketScreen = ({coins}) => {
     const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms'// + string + '@kline_1m';
     const isBrowser = typeof window !== "undefined";
     const ws = isBrowser ? new WebSocket(url) : null;
-    const msg = {
-      method: 'SUBSCRIBE',
-      params: [],
-      id: 1
-    }
+    // const msg = {
+    //   method: 'SUBSCRIBE',
+    //   params: [],
+    //   id: 1
+    // }
     if (!isNil(ws)) {
       ws.onopen = (event) => {
-        ws.send(JSON.stringify(msg));
+        // ws.send(JSON.stringify(msg));
       };
       ws.onmessage = function (event) {
         var data = JSON.parse(event.data);
