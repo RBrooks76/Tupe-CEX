@@ -358,16 +358,17 @@ const MarketScreen = ({coins}) => {
             const find_data = eventData.data.find(x=>x.s === pair_name.toUpperCase());
             if(find_data !== undefined){
               pair.display_name = popupName.symbol.toLowerCase() + '/' + pairName.toLowerCase();
-              pair.c = reduceDecimal(eventData.c);
-              pair.P = reduceDecimal(eventData.p);
-              pair.p = reduceDecimal(eventData.v);
+              pair.c = reduceDecimal(eventData.data.c);
+              pair.P = reduceDecimal(eventData.data.p);
+              pair.p = reduceDecimal(eventData.data.v);
               result.push(pair);
               popupName.pair = [...result];
               popupName = popupName;
             }
+            console.log(popupName);
           })
         });
-        setData(popup);
+        // setData(popup);
       }
     }
   }, [data]);
