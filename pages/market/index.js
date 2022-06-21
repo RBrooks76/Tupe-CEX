@@ -364,7 +364,6 @@ const MarketScreen = ({coins}) => {
   //       console.log(tempData);
   //     })
   //   })
-    
   // }, [coinList]);
 
 
@@ -385,28 +384,21 @@ const MarketScreen = ({coins}) => {
         console.log(event);
         var popup = data;
 
-        pair_list.map((pairName, pairIndex) => {
-          popup.map((popupName, dataIndex) => {
+        popup.map((popupName, dataIndex) => {
+          pair_list.map((pairName, pairIndex) => {
             const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
             const find_data = eventData.data.find(x=>x.s === pair_name.toUpperCase());
             if (find_data !== undefined) {
               const find_index = popup.findIndex(x=>find_data.s.includes(x.name));
               if (find_index > -1) {
-                const pair = popup[find_index].pair;
-                if (pair !== undefined) {
-                  pair.map((pair_item, pair_index)=>{
-                    const pair_find_data = eventData.data.find(x=>x.s === pair_item.name);
-                    if (pair_find_data !== undefined) {
-                      Object.keys(pair_find_data).map(key=>{
-                        pair[pair_index][key] = pair_find_data[key];
-                      });
-                    }
-                  });
-                }
+                popup[find_index].pair.push(find_data);
               }
             }
+            console.log(pairName);
           })
+
         });
+        console.log("@@@@@@@@@@@@@@@@@@:" + popup);
         setData({...popup});
       }
     }
