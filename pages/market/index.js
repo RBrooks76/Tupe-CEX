@@ -350,6 +350,7 @@ const MarketScreen = ({coins}) => {
       };
       ws.onmessage = function (event) {
         var eventData = JSON.parse(event.data);
+        console.log(eventData);
         var popup = data;
         pair_list.map((pairName, pairIndex) => {
           popup.map((popupName, dataIndex) => {
