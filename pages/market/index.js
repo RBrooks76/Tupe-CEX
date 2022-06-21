@@ -81,10 +81,8 @@ const MarketScreen = ({coins}) => {
   const [count, setCount] = useState(20);
   const [coinList, setCoinList] = useState([]);
   const [coinNameList, setCoinNameList] = useState([]);
-
-
-  var [filteredCoins, setFilteredCoins] = useState([]);
-  var [sortedCoins, setSortedCoins] = useState([]);
+  const [sortCoin, setSortCoins] = useState([]);
+  const [filterCoin, setFilterCoins] = useState([])
 
   const reduceDecimal = (item) => {
     let dnum = item < 0 ? item - Math.ceil(item) : item - Math.floor(item);
@@ -206,6 +204,13 @@ const MarketScreen = ({coins}) => {
       setData(datalist);
       setAllSymbol([...all_symbols]);
       setLoaded(true);
+
+      filteredCoins = datalist.filter(coin =>
+        (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
+      );
+    
+      sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
+      setSortCoins(sortedCoins);
     })
   };
 
@@ -366,15 +371,21 @@ const MarketScreen = ({coins}) => {
           })
         });
         setData(popup);
+        filteredCoins = popup.filter(coin =>
+          (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
+        );
+      
+        sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
+        setSortCoins(sortedCoins);
       }
     }
     return () => controller.abort();
-  }, [data]);
+  }, [allSymbol]);
 
 
   /////////////////////////////////////////////////////// 
   useEffect( async () => {
-    const pair_list = ['USDT', 'ETH', 'BNB', 'BTC'];
+    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
     var result = [];
     var tempData = data;
 
@@ -402,19 +413,13 @@ const MarketScreen = ({coins}) => {
       })
     })
     setData(tempData);
-  }, []);
-
-  
-  useEffect(() => {
-    var filter = data.filter(coin =>
+    filteredCoins = tempData.filter(coin =>
       (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
     );
-      
-    var sort = orderBy(filteredCoins, sortkey, sortorder);
-
-    setFilteredCoins(filter);
-    setSortedCoins(sort);
-  }, [data]);
+  
+    sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
+      setSortCoins(sortedCoins);
+  }, [allSymbol]);
 
   const handleSearchValue = (e) => {
     const { value } = e.target;
@@ -425,6 +430,20 @@ const MarketScreen = ({coins}) => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
   };
+
+  // const filteredCoins = data.filter(coin =>
+  //   (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
+  // );
+
+  // const sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
+
+  const filteredCoins = [];
+  const sortedCoins = [];
+
+  // useEffect(() => {
+  //   setSortCoins(sortedCoins);
+  //   setFilterCoins(filteredCoins);
+  // }, [data])
   
   function onChangePage (pager) {
     if (!isNil(pager)) setCurrentPage(pager.currentPage);
@@ -477,7 +496,7 @@ const MarketScreen = ({coins}) => {
             setCount={setCount}
           />
           
-          {sortedCoins && sortedCoins.length > 0 && (
+          {sortCoin && sortCoin.length > 0 && (
             <table className='data-table'>
               <thead>
                 <tr>
@@ -531,7 +550,7 @@ const MarketScreen = ({coins}) => {
                 </tr>
               </thead>
               <tbody>
-                {loaded && sortedCoins.map((item, index) => (
+                {loaded && sortCoin.map((item, index) => (
                   <>
                     {index >= (current_page - 1) * count && index < current_page * count && (
                       <MarketRow key={item.id.toString()} item={JSON.parse(JSON.stringify(item))} index={index + 1} multiple={multiple} unit={unit}/>
@@ -544,7 +563,7 @@ const MarketScreen = ({coins}) => {
           )}
           <div style={{display: 'flex'}}>
             <Pagination
-              items={sortedCoins}
+              items={sortCoin}
               initialPage={current_page}
               onChangePage={onChangePage}
               pageSize={count}
