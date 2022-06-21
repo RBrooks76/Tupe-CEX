@@ -247,10 +247,10 @@ const MarketScreen = ({coins}) => {
     return result;
   }
 
-  useEffect(()=>{
-    const subs = [];
-    if (allSymbol.length === 0) return;
-    if (data.length === 0) return;
+  // useEffect(()=>{
+  //   const subs = [];
+  //   if (allSymbol.length === 0) return;
+  //   if (data.length === 0) return;
 
   //   allSymbol.map((item, index)=>{
   //     const push_item = '5~CCCAGG~' + item + '~USD';
