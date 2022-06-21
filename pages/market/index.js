@@ -390,7 +390,7 @@ const MarketScreen = ({coins}) => {
             const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
             const find_data = eventData.data.find(x=>x.s === pair_name.toUpperCase());
             if (find_data !== undefined) {
-              const find_index = poup.findIndex(x=>find_data.s.includes(x.name));
+              const find_index = popup.findIndex(x=>find_data.s.includes(x.name));
               if (find_index > -1) {
                 const pair = popup[find_index].pair;
                 if (pair !== undefined) {
