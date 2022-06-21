@@ -380,7 +380,7 @@ const MarketScreen = ({coins}) => {
       }
     }
     return () => controller.abort();
-  }, [allSymbol]);
+  }, [sortCoin]);
 
 
   /////////////////////////////////////////////////////// 
