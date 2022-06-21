@@ -314,19 +314,25 @@ const MarketScreen = ({coins}) => {
     const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
     var string = '';
 
-    allSymbol.map((symbolName, symbolIndex)=>{
-      pair_list.map((pairName, pairIndex) => {
-        string += symbolName.toLowerCase() + pairName.toLowerCase() + ',';
-      })
-    });
+    
 
-      const url = 'wss://stream.binance.com:9443/ws/' + string + '@kline_1m';
-      const isBrowser = typeof window !== "undefined";
-      const ws = isBrowser ? new WebSocket(url) : null;
+    // data.map((item, index) => {
+    //   pair_list.map((pairNamem, pairIndex) => {
 
+    //   })
+    // })
+    
+    const url = 'wss://stream.binance.com:9443/stream?streams'// + string + '@kline_1m';
+    const isBrowser = typeof window !== "undefined";
+    const ws = isBrowser ? new WebSocket(url) : null;
+    const msg = {
+      method: 'SUBSCRIBE',
+      params: ['btcusdt@ticker/btceth@ticker/btnbnb@ticker'],
+      id: 1
+    }
     if (!isNil(ws)) {
       ws.onopen = (event) => {
-        ws.send(JSON.stringify(apiCall));
+        ws.send(JSON.stringify(msg));
       };
       ws.onmessage = function (event) {
         var data = JSON.parse(event.data);
