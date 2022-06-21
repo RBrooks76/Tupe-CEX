@@ -337,7 +337,6 @@ const MarketScreen = ({coins}) => {
   useEffect(() => {
 
     const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
-    var string = '';
     var result = [];
     
     const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
@@ -349,9 +348,12 @@ const MarketScreen = ({coins}) => {
         // ws.send(JSON.stringify(msg));
       };
       ws.onmessage = function (event) {
-        var eventData = JSON.parse(event.data);
+        // var eventData = JSON.parse(event.data);
+        var eventData = event.data;
         console.log(eventData);
         var popup = data;
+        var pair = [];
+
         pair_list.map((pairName, pairIndex) => {
           popup.map((popupName, dataIndex) => {
             const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
