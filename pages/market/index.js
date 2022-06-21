@@ -252,95 +252,120 @@ const MarketScreen = ({coins}) => {
     if (allSymbol.length === 0) return;
     if (data.length === 0) return;
 
-    allSymbol.map((item, index)=>{
-      const push_item = '5~CCCAGG~' + item + '~USD';
-      subs.push(push_item);
-    });
+  //   allSymbol.map((item, index)=>{
+  //     const push_item = '5~CCCAGG~' + item + '~USD';
+  //     subs.push(push_item);
+  //   });
 
-    const controller = new AbortController();
-    const apiCall = {action: 'SubAdd',subs};
-    const url = 'wss://streamer.cryptocompare.com/v2?api_key=' + CRYTOCOMPARE_API_KEY;
-    const isBrowser = typeof window !== "undefined";
-    const ws = isBrowser ? new WebSocket(url) : null;
+  //   const controller = new AbortController();
+  //   const apiCall = {action: 'SubAdd',subs};
+  //   const url = 'wss://streamer.cryptocompare.com/v2?api_key=' + CRYTOCOMPARE_API_KEY;
+  //   const isBrowser = typeof window !== "undefined";
+  //   const ws = isBrowser ? new WebSocket(url) : null;
 
-    if (!isNil(ws)) {
-      ws.onopen = (event) => {
-        ws.send(JSON.stringify(apiCall));
-      };
-      ws.onmessage = function (event) {
-        const json = JSON.parse(event.data);
-        try {
-          if (json.FROMSYMBOL !== undefined) {
-            const new_data = cloneDeep(data);
+  //   if (!isNil(ws)) {
+  //     ws.onopen = (event) => {
+  //       ws.send(JSON.stringify(apiCall));
+  //     };
+  //     ws.onmessage = function (event) {
+  //       const json = JSON.parse(event.data);
+  //       try {
+  //         if (json.FROMSYMBOL !== undefined) {
+  //           const new_data = cloneDeep(data);
 
-            const insert_item = data.find(x=>x.symbol === json.FROMSYMBOL.toLowerCase());
-            if (isNil(insert_item.price_change_percentage_24h)) insert_item.price_change_percentage_24h = 0;
-            if (insert_item !== undefined && json.PRICE !== undefined) {
-              // insert_item.price_change_percentage_24h *= (insert_item.current_price/json.PRICE)
-              if (getItem24H(insert_item) !== '') insert_item.price_change_percentage_24h = getItem24H(insert_item);
-              insert_item.current_price = json.PRICE;
-            }
-            // if (json.VOLUME24HOUR !== undefined) insert_item.total_volume = json.VOLUME24HOUR;
-            if (trade_price[json.FROMSYMBOL] !== undefined && json.PRICE !== undefined) trade_price[json.FROMSYMBOL] = json.PRICE;
-            setTradePrice(trade_price);
+  //           const insert_item = data.find(x=>x.symbol === json.FROMSYMBOL.toLowerCase());
+  //           if (isNil(insert_item.price_change_percentage_24h)) insert_item.price_change_percentage_24h = 0;
+  //           if (insert_item !== undefined && json.PRICE !== undefined) {
+  //             // insert_item.price_change_percentage_24h *= (insert_item.current_price/json.PRICE)
+  //             if (getItem24H(insert_item) !== '') insert_item.price_change_percentage_24h = getItem24H(insert_item);
+  //             insert_item.current_price = json.PRICE;
+  //           }
+  //           // if (json.VOLUME24HOUR !== undefined) insert_item.total_volume = json.VOLUME24HOUR;
+  //           if (trade_price[json.FROMSYMBOL] !== undefined && json.PRICE !== undefined) trade_price[json.FROMSYMBOL] = json.PRICE;
+  //           setTradePrice(trade_price);
 
-            const findIndex = data.findIndex(x=>x.symbol === insert_item.symbol);
-            if (findIndex > -1) {
-              insert_item.pair = getItemPair(insert_item);
-              new_data[findIndex] = {...insert_item};
-            }
-            setData([...new_data]);
-            const btc = data.find(x=>x.symbol === "btc");
-            const eth = data.find(x=>x.symbol === "eth");
-            const doge = data.find(x=>x.symbol === "doge");
-            const shib = data.find(x=>x.symbol === "shib");
-            if (btc !== undefined) topcoin.btc = [btc.current_price, btc.price_change_percentage_24h];
-            if (eth !== undefined) topcoin.eth = [eth.current_price, eth.price_change_percentage_24h];
-            if (doge !== undefined) topcoin.doge = [doge.current_price, doge.price_change_percentage_24h];
-            if (shib !== undefined) topcoin.shib = [shib.current_price, shib.price_change_percentage_24h];
-            setTopcoin({...topcoin});
-          }
-        } catch (err) {
-          // console.log(err)
-        }
-      }
-    }
-    return () => controller.abort();
-  }, [allSymbol]);
+  //           const findIndex = data.findIndex(x=>x.symbol === insert_item.symbol);
+  //           if (findIndex > -1) {
+  //             insert_item.pair = getItemPair(insert_item);
+  //             new_data[findIndex] = {...insert_item};
+  //           }
+  //           setData([...new_data]);
+  //           const btc = data.find(x=>x.symbol === "btc");
+  //           const eth = data.find(x=>x.symbol === "eth");
+  //           const doge = data.find(x=>x.symbol === "doge");
+  //           const shib = data.find(x=>x.symbol === "shib");
+  //           if (btc !== undefined) topcoin.btc = [btc.current_price, btc.price_change_percentage_24h];
+  //           if (eth !== undefined) topcoin.eth = [eth.current_price, eth.price_change_percentage_24h];
+  //           if (doge !== undefined) topcoin.doge = [doge.current_price, doge.price_change_percentage_24h];
+  //           if (shib !== undefined) topcoin.shib = [shib.current_price, shib.price_change_percentage_24h];
+  //           setTopcoin({...topcoin});
+  //         }
+  //       } catch (err) {
+  //         // console.log(err)
+  //       }
+  //     }
+  //   }
+  //   return () => controller.abort();
+  // }, [allSymbol]);
 
+
+  // const getPair = (item) => {
+  //   // console.log(JSONDATA.data);
+  //   var market_data = JSONDATA.data;
+  //   const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
+  //   const result = [];
+  //   pair_list.map((name1, index)=>{
+  //     const pairname = item.symbol + name1.toLowerCase();
+  //     const find_data = market_data.find(x=>x.s === pairname.toUpperCase());
+  //     if (find_data !== undefined) {
+  //       find_data.display_name = item.symbol.toUpperCase() + "/" + name1;
+  //       result.push(find_data);
+  //     }
+  //   });
+  //   return result;
+  // }
+
+  // useEffect(() => {
+  //   const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
+  //   const insertData = [];
+  //   data.map((item, index) => {
+  //     insertData = getPair(item);
+  //     item.pair = insertData;
+  //   })
+  // }, [data])
 
   useEffect(() => {
 
     const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
     var string = '';
-
+    var result = [];
     
-
-    // data.map((item, index) => {
-    //   pair_list.map((pairNamem, pairIndex) => {
-
-    //   })
-    // })
-    
-    const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms'// + string + '@kline_1m';
+    const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
     const isBrowser = typeof window !== "undefined";
     const ws = isBrowser ? new WebSocket(url) : null;
-    // const msg = {
-    //   method: 'SUBSCRIBE',
-    //   params: [],
-    //   id: 1
-    // }
+
     if (!isNil(ws)) {
       ws.onopen = (event) => {
         // ws.send(JSON.stringify(msg));
       };
       ws.onmessage = function (event) {
-        var data = JSON.parse(event.data);
-
-        console.log(data);
+        var eventData = JSON.parse(event.data);
+        var popup = data;
+        pair_list.map((pairName, pairIndex) => {
+          popup.map((popupName, dataIndex) => {
+            const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
+            const find_data = eventData.find(x=>x.s === pair_name.toUpperCase());
+            if(find_data !== undefined){
+              find_data.display_name = popupName.symbol.toLowerCase() + '/' + pairName.toLowerCase();
+              result.push(find_data);
+            }
+            item.pair = [...result];
+          })
+        });
+        setData(popup);
       }
     }
-  }, [allSymbol]);
+  }, [data]);
 
   const handleSearchValue = (e) => {
     const { value } = e.target;
