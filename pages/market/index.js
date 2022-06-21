@@ -376,14 +376,12 @@ const MarketScreen = ({coins}) => {
     const ws = isBrowser ? new WebSocket(url) : null;
     if (!isNil(ws)) {
       ws.onopen = (event) => {
-        // ws.send(JSON.stringify(msg));
       };
       ws.onmessage = function (event) {
         var eventData = JSON.parse(event.data);
 
         // var eventData = JSONDATA;
         var popup = data;
-
         popup.map((popupName, dataIndex) => {
           popupName.pair = [];
           pair_list.map((pairName, pairIndex) => {
@@ -394,7 +392,6 @@ const MarketScreen = ({coins}) => {
               if (find_index > -1) {
                 find_data['display_name'] = (popupName.symbol.toLowerCase() +'/'+ pairName.toLowerCase()).toUpperCase();
                 popupName.pair.push(find_data);
-                console.log(popupName.pair);
               }
             }
           })
