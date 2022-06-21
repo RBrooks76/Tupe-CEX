@@ -380,60 +380,34 @@ const MarketScreen = ({coins}) => {
         // ws.send(JSON.stringify(msg));
       };
       ws.onmessage = function (event) {
-        var json = JSON.parse(event.data);
+        var eventData = JSON.parse(event.data);
 
         console.log(event);
+        var popup = data;
 
-        const new_data = cloneDeep(data);
-        const insert_item = data.find(x=>x.symbol === json.FROMSYMBOL.toLowerCase());
-        if (isNil(insert_item.price_change_percentage_24h)) insert_item.price_change_percentage_24h = 0;
-        if (insert_item !== undefined && json.PRICE !== undefined) {
-          // insert_item.price_change_percentage_24h *= (insert_item.current_price/json.PRICE)
-          if (getItem24H(insert_item) !== '') insert_item.price_change_percentage_24h = getItem24H(insert_item);
-          insert_item.current_price = json.PRICE;
-        }
-        // if (json.VOLUME24HOUR !== undefined) insert_item.total_volume = json.VOLUME24HOUR;
-        if (trade_price[json.FROMSYMBOL] !== undefined && json.PRICE !== undefined) trade_price[json.FROMSYMBOL] = json.PRICE;
-        setTradePrice(trade_price);
-
-        const findIndex = data.findIndex(x=>x.symbol === insert_item.symbol);
-        if (findIndex > -1) {
-          insert_item.pair = getItemPair(insert_item);
-          new_data[findIndex] = {...insert_item};
-        }
-        setData([...new_data]);
-        const btc = data.find(x=>x.symbol === "btc");
-        const eth = data.find(x=>x.symbol === "eth");
-        const doge = data.find(x=>x.symbol === "doge");
-        const shib = data.find(x=>x.symbol === "shib");
-        if (btc !== undefined) topcoin.btc = [btc.current_price, btc.price_change_percentage_24h];
-        if (eth !== undefined) topcoin.eth = [eth.current_price, eth.price_change_percentage_24h];
-        if (doge !== undefined) topcoin.doge = [doge.current_price, doge.price_change_percentage_24h];
-        if (shib !== undefined) topcoin.shib = [shib.current_price, shib.price_change_percentage_24h];
-        setTopcoin({...topcoin});
-
-        // pair_list.map((pairName, pairIndex) => {
-        //   popup.map((popupName, dataIndex) => {
-        //     const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
-        //     const find_data = eventData.data.find(x=>x.s === pair_name.toUpperCase());
-        //     // if(find_data !== undefined){
-        //     //   pair.display_name = popupName.symbol.toLowerCase() + '/' + pairName.toLowerCase();
-        //     //   pair.c = reduceDecimal(eventData.data.c);
-        //     //   pair.P = reduceDecimal(eventData.data.p);
-        //     //   pair.p = reduceDecimal(eventData.data.v);
-        //     //   result.push({...pair});
-        //     //   popupName.pair = [...result];
-        //     //   popupName = popupName;
-        //     // }
-
-        //     const findIndex = data.findIndex(x=>x.symbol === find_data.symbol);
-        //     if (findIndex > -1) {
-        //       find_data.pair = getItemPair(find_data);
-        //       new_data[findIndex] = {...insert_item};
-        //     }
-        //   })
-        // });
-        // setData(popup);
+        pair_list.map((pairName, pairIndex) => {
+          popup.map((popupName, dataIndex) => {
+            const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
+            const find_data = eventData.data.find(x=>x.s === pair_name.toUpperCase());
+            if (find_data !== undefined) {
+              const find_index = poup.findIndex(x=>find_data.s.includes(x.name));
+              if (find_index > -1) {
+                const pair = popup[find_index].pair;
+                if (pair !== undefined) {
+                  pair.map((pair_item, pair_index)=>{
+                    const pair_find_data = eventData.data.find(x=>x.s === pair_item.name);
+                    if (pair_find_data !== undefined) {
+                      Object.keys(pair_find_data).map(key=>{
+                        pair[pair_index][key] = pair_find_data[key];
+                      });
+                    }
+                  });
+                }
+              }
+            }
+          })
+        });
+        setData({...popup});
       }
     }
   }, [data]);
