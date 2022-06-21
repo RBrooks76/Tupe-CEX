@@ -247,66 +247,67 @@ const MarketScreen = ({coins}) => {
     return result;
   }
 
-  // useEffect(()=>{
-  //   const subs = [];
-  //   if (allSymbol.length === 0) return;
-  //   if (data.length === 0) return;
+  useEffect(()=>{
+    const subs = [];
+    if (allSymbol.length === 0) return;
+    if (data.length === 0) return;
 
-  //   allSymbol.map((item, index)=>{
-  //     const push_item = '5~CCCAGG~' + item + '~USD';
-  //     subs.push(push_item);
-  //   });
+    allSymbol.map((item, index)=>{
+      const push_item = '5~CCCAGG~' + item + '~USD';
+      subs.push(push_item);
+    });
 
-  //   const controller = new AbortController();
-  //   const apiCall = {action: 'SubAdd',subs};
-  //   const url = 'wss://streamer.cryptocompare.com/v2?api_key=' + CRYTOCOMPARE_API_KEY;
-  //   const isBrowser = typeof window !== "undefined";
-  //   const ws = isBrowser ? new WebSocket(url) : null;
+    const controller = new AbortController();
+    const apiCall = {action: 'SubAdd',subs};
+    // const url = 'wss://streamer.cryptocompare.com/v2?api_key=' + CRYTOCOMPARE_API_KEY;
+    const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
+    const isBrowser = typeof window !== "undefined";
+    const ws = isBrowser ? new WebSocket(url) : null;
 
-  //   if (!isNil(ws)) {
-  //     ws.onopen = (event) => {
-  //       ws.send(JSON.stringify(apiCall));
-  //     };
-  //     ws.onmessage = function (event) {
-  //       const json = JSON.parse(event.data);
-  //       try {
-  //         if (json.FROMSYMBOL !== undefined) {
-  //           const new_data = cloneDeep(data);
+    if (!isNil(ws)) {
+      ws.onopen = (event) => {
+        ws.send(JSON.stringify(apiCall));
+      };
+      ws.onmessage = function (event) {
+        const json = JSON.parse(event.data);
+        try {
+          if (json.FROMSYMBOL !== undefined) {
+            const new_data = cloneDeep(data);
 
-  //           const insert_item = data.find(x=>x.symbol === json.FROMSYMBOL.toLowerCase());
-  //           if (isNil(insert_item.price_change_percentage_24h)) insert_item.price_change_percentage_24h = 0;
-  //           if (insert_item !== undefined && json.PRICE !== undefined) {
-  //             // insert_item.price_change_percentage_24h *= (insert_item.current_price/json.PRICE)
-  //             if (getItem24H(insert_item) !== '') insert_item.price_change_percentage_24h = getItem24H(insert_item);
-  //             insert_item.current_price = json.PRICE;
-  //           }
-  //           // if (json.VOLUME24HOUR !== undefined) insert_item.total_volume = json.VOLUME24HOUR;
-  //           if (trade_price[json.FROMSYMBOL] !== undefined && json.PRICE !== undefined) trade_price[json.FROMSYMBOL] = json.PRICE;
-  //           setTradePrice(trade_price);
+            const insert_item = data.find(x=>x.symbol === json.FROMSYMBOL.toLowerCase());
+            if (isNil(insert_item.price_change_percentage_24h)) insert_item.price_change_percentage_24h = 0;
+            if (insert_item !== undefined && json.PRICE !== undefined) {
+              // insert_item.price_change_percentage_24h *= (insert_item.current_price/json.PRICE)
+              if (getItem24H(insert_item) !== '') insert_item.price_change_percentage_24h = getItem24H(insert_item);
+              insert_item.current_price = json.PRICE;
+            }
+            // if (json.VOLUME24HOUR !== undefined) insert_item.total_volume = json.VOLUME24HOUR;
+            if (trade_price[json.FROMSYMBOL] !== undefined && json.PRICE !== undefined) trade_price[json.FROMSYMBOL] = json.PRICE;
+            setTradePrice(trade_price);
 
-  //           const findIndex = data.findIndex(x=>x.symbol === insert_item.symbol);
-  //           if (findIndex > -1) {
-  //             insert_item.pair = getItemPair(insert_item);
-  //             new_data[findIndex] = {...insert_item};
-  //           }
-  //           setData([...new_data]);
-  //           const btc = data.find(x=>x.symbol === "btc");
-  //           const eth = data.find(x=>x.symbol === "eth");
-  //           const doge = data.find(x=>x.symbol === "doge");
-  //           const shib = data.find(x=>x.symbol === "shib");
-  //           if (btc !== undefined) topcoin.btc = [btc.current_price, btc.price_change_percentage_24h];
-  //           if (eth !== undefined) topcoin.eth = [eth.current_price, eth.price_change_percentage_24h];
-  //           if (doge !== undefined) topcoin.doge = [doge.current_price, doge.price_change_percentage_24h];
-  //           if (shib !== undefined) topcoin.shib = [shib.current_price, shib.price_change_percentage_24h];
-  //           setTopcoin({...topcoin});
-  //         }
-  //       } catch (err) {
-  //         // console.log(err)
-  //       }
-  //     }
-  //   }
-  //   return () => controller.abort();
-  // }, [allSymbol]);
+            const findIndex = data.findIndex(x=>x.symbol === insert_item.symbol);
+            if (findIndex > -1) {
+              insert_item.pair = getItemPair(insert_item);
+              new_data[findIndex] = {...insert_item};
+            }
+            setData([...new_data]);
+            const btc = data.find(x=>x.symbol === "btc");
+            const eth = data.find(x=>x.symbol === "eth");
+            const doge = data.find(x=>x.symbol === "doge");
+            const shib = data.find(x=>x.symbol === "shib");
+            if (btc !== undefined) topcoin.btc = [btc.current_price, btc.price_change_percentage_24h];
+            if (eth !== undefined) topcoin.eth = [eth.current_price, eth.price_change_percentage_24h];
+            if (doge !== undefined) topcoin.doge = [doge.current_price, doge.price_change_percentage_24h];
+            if (shib !== undefined) topcoin.shib = [shib.current_price, shib.price_change_percentage_24h];
+            setTopcoin({...topcoin});
+          }
+        } catch (err) {
+          console.log(err)
+        }
+      }
+    }
+    return () => controller.abort();
+  }, [allSymbol]);
 
 
   // const getPair = (item) => {
@@ -334,44 +335,84 @@ const MarketScreen = ({coins}) => {
   //   })
   // }, [data])
 
-  useEffect(() => {
 
-    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
-    var result = [];
+  /////////////////////////////////////////////////////// 
+  // useEffect(() => {
+  //   const pair_list = ['USDT', 'BNB', 'BTC', 'ETH'];
+  //   var namelist = [];
+
+  //   pair_list.map((pair_name, pairIndex) => {
+  //     var pairName = pair_name == 'USDT' ? 'USD' : pair_name;
+  //     const routine = "https://api.coingecko.com/api/v3/simple/price?ids=" + coinList + "&vs_currencies=" + pairName.toLowerCase() + "&include_24hr_vol=true&include_24hr_change=true";
+  //     axios.get(routine).then(res => {
+  //       // console.log(res.data);
+  //       var keys = Object.keys(res.data);
+  //       keys.forEach(key =>{
+  //         namelist.push(key);
+  //       });
+  //       var pair = [];
+  //       var tempData = data;
+  //       tempData.map((item) => {
+  //         pair_list.map((name) => {
+  //           var namechange = name + '_24h_change';
+  //           var namevolume = name + '_24h_vol';
+  //           pair.display_name = (name + '/' + pairName).toUpperCase();
+  //           pair.c = item.current_price;
+  //           pair.P = res.data[name][namechange];
+  //           pair.p = res.data[name][namevolume];
+  //           item.pair = {...pair};
+  //           var result = [];
+  //         })
+  //         item = item;
+  //       })
+  //       console.log(tempData);
+  //     })
+  //   })
     
-    const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
-    const isBrowser = typeof window !== "undefined";
-    const ws = isBrowser ? new WebSocket(url) : null;
+  // }, [coinList]);
 
-    if (!isNil(ws)) {
-      ws.onopen = (event) => {
-        // ws.send(JSON.stringify(msg));
-      };
-      ws.onmessage = function (event) {
-        var eventData = JSON.parse(event.data);
-        var popup = data;
-        var pair = {};
 
-        pair_list.map((pairName, pairIndex) => {
-          popup.map((popupName, dataIndex) => {
-            const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
-            const find_data = eventData.data.find(x=>x.s === pair_name.toUpperCase());
-            if(find_data !== undefined){
-              pair.display_name = popupName.symbol.toLowerCase() + '/' + pairName.toLowerCase();
-              pair.c = reduceDecimal(eventData.data.c);
-              pair.P = reduceDecimal(eventData.data.p);
-              pair.p = reduceDecimal(eventData.data.v);
-              result.push(pair);
-              popupName.pair = [...result];
-              popupName = popupName;
-            }
-            console.log(popupName);
-          })
-        });
-        // setData(popup);
-      }
-    }
-  }, [data]);
+/////////////////////////////////////BINANCE WEBSOCKET/////////////////////////////////////
+  // useEffect(() => {
+  //   const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
+  //   var result = [];
+  //   const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
+  //   const isBrowser = typeof window !== "undefined";
+  //   const ws = isBrowser ? new WebSocket(url) : null;
+  //   if (!isNil(ws)) {
+  //     ws.onopen = (event) => {
+  //       // ws.send(JSON.stringify(msg));
+  //     };
+  //     ws.onmessage = function (event) {
+  //       var eventData = JSON.parse(event.data);
+  //       console.log(eventData);
+  //       var popup = data;
+  //       var pair = {};
+  //       pair_list.map((pairName, pairIndex) => {
+  //         popup.map((popupName, dataIndex) => {
+  //           const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
+  //           const find_data = eventData.data.find(x=>x.s === pair_name.toUpperCase());
+  //           // if(find_data !== undefined){
+  //           //   pair.display_name = popupName.symbol.toLowerCase() + '/' + pairName.toLowerCase();
+  //           //   pair.c = reduceDecimal(eventData.data.c);
+  //           //   pair.P = reduceDecimal(eventData.data.p);
+  //           //   pair.p = reduceDecimal(eventData.data.v);
+  //           //   result.push({...pair});
+  //           //   popupName.pair = [...result];
+  //           //   popupName = popupName;
+  //           // }
+
+  //           const findIndex = data.findIndex(x=>x.symbol === find_data.symbol);
+  //           if (findIndex > -1) {
+  //             find_data.pair = getItemPair(find_data);
+  //             new_data[findIndex] = {...insert_item};
+  //           }
+  //         })
+  //       });
+  //       // setData(popup);
+  //     }
+  //   }
+  // }, [data]);
 
   const handleSearchValue = (e) => {
     const { value } = e.target;
