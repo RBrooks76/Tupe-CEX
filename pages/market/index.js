@@ -255,7 +255,8 @@ const MarketScreen = ({coins}) => {
     };
     return result;
   }
-
+  
+  //////////////////////////////// CRYPTOCOMPARE WEBSOCKET ////////////////////////////////
   // useEffect(()=>{
   //   const subs = [];
   //   if (allSymbol.length === 0) return;
@@ -340,50 +341,51 @@ const MarketScreen = ({coins}) => {
   // }, [data])
 
   /////////////////////////////////////BINANCE WEBSOCKET/////////////////////////////////////
-  useEffect(() => {
-    const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
-    var result = [];
-    const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
-    const isBrowser = typeof window !== "undefined";
-    const ws = isBrowser ? new WebSocket(url) : null;
-    const controller = new AbortController();
+  // useEffect(() => {
+  //   const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
+  //   var result = [];
+  //   const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
+  //   const isBrowser = typeof window !== "undefined";
+  //   const ws = isBrowser ? new WebSocket(url) : null;
+  //   const controller = new AbortController();
 
-    if (!isNil(ws)) {
-      ws.onopen = (event) => {
-      };
-      ws.onmessage = function (event) {
-        var eventData = JSON.parse(event.data);
+  //   if (!isNil(ws)) {
+  //     ws.onopen = (event) => {
+  //     };
+  //     ws.onmessage = function (event) {
+  //       console.log(event);
+  //       var eventData = JSON.parse(event.data);
         
-        // var eventData = JSONDATA;
-        var popup = data;
-        popup.map((popupName, dataIndex) => {
-          popupName.pair = [];
-          pair_list.map((pairName, pairIndex) => {
-            const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
-            const find_data = eventData.data.find(x=>x.s == pair_name.toUpperCase());
-            if (find_data !== undefined) {
-              var find_index = popup.findIndex(x=>find_data.s.toLowerCase().includes(x.symbol.toLowerCase()));
-              if (find_index > -1) {
-                find_data['display_name'] = (popupName.symbol.toLowerCase() +'/'+ pairName.toLowerCase()).toUpperCase();
-                popupName.pair.push(find_data);
-              }
-            }
-          })
-        });
-        setData(popup);
-        filteredCoins = popup.filter(coin =>
-          (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
-        );
+  //       // var eventData = JSONDATA;
+  //       var popup = data;
+  //       popup.map((popupName, dataIndex) => {
+  //         popupName.pair = [];
+  //         pair_list.map((pairName, pairIndex) => {
+  //           const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
+  //           const find_data = eventData.data.find(x=>x.s == pair_name.toUpperCase());
+  //           if (find_data !== undefined) {
+  //             var find_index = popup.findIndex(x=>find_data.s.toLowerCase().includes(x.symbol.toLowerCase()));
+  //             if (find_index > -1) {
+  //               find_data['display_name'] = (popupName.symbol.toLowerCase() +'/'+ pairName.toLowerCase()).toUpperCase();
+  //               popupName.pair.push(find_data);
+  //             }
+  //           }
+  //         })
+  //       });
+  //       setData(popup);
+  //       filteredCoins = popup.filter(coin =>
+  //         (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
+  //       );
       
-        sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
-        setSortCoins(sortedCoins);
-      }
-    }
-    return () => controller.abort();
-  }, [sortCoin]);
+  //       sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
+  //       setSortCoins(sortedCoins);
+  //     }
+  //   }
+  //   return () => controller.abort();
+  // }, [sortCoin]);
 
 
-  /////////////////////////////////////////////////////// 
+  //////////////////////////////// BINANCE API TOOLTIP ////////////////////////////////
   useEffect( async () => {
     const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
     var result = [];
@@ -397,6 +399,7 @@ const MarketScreen = ({coins}) => {
 
     tempData.map((tempItem) => {
       tempItem.pair = [];
+      var cnt = 0;
       pair_list.map((pairItem) => {
         var find_name = tempItem.symbol.toLowerCase() + pairItem.toLowerCase();
         var find_data = result.find(x=>x.symbol == find_name.toUpperCase());
@@ -408,9 +411,19 @@ const MarketScreen = ({coins}) => {
             find_data['P'] = find_data['priceChangePercent'];
             find_data['p'] = find_data['volume'];
             tempItem.pair.push(find_data);
+            cnt++;
           }
         }
       })
+      var temp = {};
+      if(cnt == 0){
+        console.log(tempItem);
+        temp['display_name'] = (tempItem.symbol.toLowerCase() + '/' + "usd").toUpperCase();
+        temp['c'] = tempItem.current_price;
+        temp['P'] = tempItem.price_change_percentage_24h;
+        temp['p'] = tempItem.total_volume;
+        tempItem.pair.push(temp);
+      }
     })
     setData(tempData);
     filteredCoins = tempData.filter(coin =>
