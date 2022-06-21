@@ -82,6 +82,10 @@ const MarketScreen = ({coins}) => {
   const [coinList, setCoinList] = useState([]);
   const [coinNameList, setCoinNameList] = useState([]);
 
+
+  var [filteredCoins, setFilteredCoins] = useState([]);
+  var [sortedCoins, setSortedCoins] = useState([]);
+
   const reduceDecimal = (item) => {
     let dnum = item < 0 ? item - Math.ceil(item) : item - Math.floor(item);
     let num = item - dnum;
@@ -307,7 +311,6 @@ const MarketScreen = ({coins}) => {
 
 
   // const getPair = (item) => {
-  //   // console.log(JSONDATA.data);
   //   var market_data = JSONDATA.data;
   //   const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
   //   const result = [];
@@ -331,43 +334,7 @@ const MarketScreen = ({coins}) => {
   //   })
   // }, [data])
 
-
-  /////////////////////////////////////////////////////// 
-  // useEffect(() => {
-  //   const pair_list = ['USDT', 'BNB', 'BTC', 'ETH'];
-  //   var namelist = [];
-
-  //   pair_list.map((pair_name, pairIndex) => {
-  //     var pairName = pair_name == 'USDT' ? 'USD' : pair_name;
-  //     const routine = "https://api.coingecko.com/api/v3/simple/price?ids=" + coinList + "&vs_currencies=" + pairName.toLowerCase() + "&include_24hr_vol=true&include_24hr_change=true";
-  //     axios.get(routine).then(res => {
-  //       // console.log(res.data);
-  //       var keys = Object.keys(res.data);
-  //       keys.forEach(key =>{
-  //         namelist.push(key);
-  //       });
-  //       var pair = [];
-  //       var tempData = data;
-  //       tempData.map((item) => {
-  //         pair_list.map((name) => {
-  //           var namechange = name + '_24h_change';
-  //           var namevolume = name + '_24h_vol';
-  //           pair.display_name = (name + '/' + pairName).toUpperCase();
-  //           pair.c = item.current_price;
-  //           pair.P = res.data[name][namechange];
-  //           pair.p = res.data[name][namevolume];
-  //           item.pair = {...pair};
-  //           var result = [];
-  //         })
-  //         item = item;
-  //       })
-  //       console.log(tempData);
-  //     })
-  //   })
-  // }, [coinList]);
-
-
-/////////////////////////////////////BINANCE WEBSOCKET/////////////////////////////////////
+  /////////////////////////////////////BINANCE WEBSOCKET/////////////////////////////////////
   useEffect(() => {
     const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
     var result = [];
@@ -380,7 +347,6 @@ const MarketScreen = ({coins}) => {
       ws.onopen = (event) => {
       };
       ws.onmessage = function (event) {
-        console.log(event);
         var eventData = JSON.parse(event.data);
         
         // var eventData = JSONDATA;
@@ -400,11 +366,54 @@ const MarketScreen = ({coins}) => {
           })
         });
         setData(popup);
-        console.log(popup);
-
       }
     }
     return () => controller.abort();
+  }, [data]);
+
+
+  /////////////////////////////////////////////////////// 
+  useEffect( async () => {
+    const pair_list = ['USDT', 'ETH', 'BNB', 'BTC'];
+    var result = [];
+    var tempData = data;
+
+    const route = "https://api.binance.com/api/v3/ticker/24hr";
+    var res = await axios.get(route);
+    if(res != undefined){
+      result = res.data;
+    }
+
+    tempData.map((tempItem) => {
+      tempItem.pair = [];
+      pair_list.map((pairItem) => {
+        var find_name = tempItem.symbol.toLowerCase() + pairItem.toLowerCase();
+        var find_data = result.find(x=>x.symbol == find_name.toUpperCase());
+        if(find_data != undefined){
+          var find_index = tempData.findIndex(x=>find_data.symbol.toLowerCase().includes(x.symbol.toLowerCase()));
+          if(find_index > -1){
+            find_data['display_name'] = (tempItem.symbol.toLowerCase() + '/' + pairItem.toLowerCase()).toUpperCase();
+            find_data['c'] = find_data['lastPrice'];
+            find_data['P'] = find_data['priceChangePercent'];
+            find_data['p'] = find_data['volume'];
+            tempItem.pair.push(find_data);
+          }
+        }
+      })
+    })
+    setData(tempData);
+  }, []);
+
+  
+  useEffect(() => {
+    var filter = data.filter(coin =>
+      (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
+    );
+      
+    var sort = orderBy(filteredCoins, sortkey, sortorder);
+
+    setFilteredCoins(filter);
+    setSortedCoins(sort);
   }, [data]);
 
   const handleSearchValue = (e) => {
@@ -416,12 +425,7 @@ const MarketScreen = ({coins}) => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
   };
-
-  const filteredCoins = data.filter(coin =>
-    (
-      coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
-  );
-
+  
   function onChangePage (pager) {
     if (!isNil(pager)) setCurrentPage(pager.currentPage);
   }
@@ -458,11 +462,9 @@ const MarketScreen = ({coins}) => {
       setSortOrder(order);
     // }
   };
-  const sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
 
   return (
     <>
-      {/* {loaded && ( */}
         <SiteLayout>
           <TopCoins topcoin={topcoin} unit={unit} multiple={multiple}/>
           <TopBar
@@ -532,9 +534,7 @@ const MarketScreen = ({coins}) => {
                 {loaded && sortedCoins.map((item, index) => (
                   <>
                     {index >= (current_page - 1) * count && index < current_page * count && (
-                          
-                          <MarketRow key={item.id.toString()} item={JSON.parse(JSON.stringify(item))} index={index + 1} multiple={multiple} unit={unit}/>
-                      
+                      <MarketRow key={item.id.toString()} item={JSON.parse(JSON.stringify(item))} index={index + 1} multiple={multiple} unit={unit}/>
                     )}
                   </>
                 ))}
@@ -552,7 +552,6 @@ const MarketScreen = ({coins}) => {
           </div>
 
         </SiteLayout>
-       {/* )} */}
       <Footer />
     </>
   );
