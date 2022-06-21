@@ -380,14 +380,14 @@ const MarketScreen = ({coins}) => {
       ws.onmessage = function (event) {
         console.log(event);
         var eventData = JSON.parse(event.data);
-
+        
         // var eventData = JSONDATA;
         var popup = data;
         popup.map((popupName, dataIndex) => {
           popupName.pair = [];
           pair_list.map((pairName, pairIndex) => {
             const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
-            const find_data = eventData.find(x=>x.s == pair_name.toUpperCase());
+            const find_data = eventData.data.find(x=>x.s == pair_name.toUpperCase());
             if (find_data !== undefined) {
               var find_index = popup.findIndex(x=>find_data.s.toLowerCase().includes(x.symbol.toLowerCase()));
               if (find_index > -1) {
@@ -402,7 +402,7 @@ const MarketScreen = ({coins}) => {
         // console.log("@@@@@@@@@@@@@@@@@@:" + popup);
       }
     }
-  }, [data]);
+  }, [allSymbol]);
 
   const handleSearchValue = (e) => {
     const { value } = e.target;
