@@ -348,19 +348,20 @@ const MarketScreen = ({coins}) => {
         // ws.send(JSON.stringify(msg));
       };
       ws.onmessage = function (event) {
-        // var eventData = JSON.parse(event.data);
-        var eventData = event.data;
-        console.log(eventData);
+        var eventData = JSON.parse(event.data);
         var popup = data;
-        var pair = [];
+        var pair = {};
 
         pair_list.map((pairName, pairIndex) => {
           popup.map((popupName, dataIndex) => {
             const pair_name = popupName.symbol.toLowerCase() + pairName.toLowerCase();
-            const find_data = eventData.find(x=>x.s === pair_name.toUpperCase());
+            const find_data = eventData.data.find(x=>x.s === pair_name.toUpperCase());
             if(find_data !== undefined){
-              find_data.display_name = popupName.symbol.toLowerCase() + '/' + pairName.toLowerCase();
-              result.push(find_data);
+              pair.display_name = popupName.symbol.toLowerCase() + '/' + pairName.toLowerCase();
+              pair.c = reduceDecimal(eventData.c);
+              pair.P = reduceDecimal(eventData.p);
+              pair.p = reduceDecimal(eventData.v);
+              result.push(pair);
             }
             item.pair = [...result];
             console.log(item);
