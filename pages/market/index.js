@@ -482,8 +482,19 @@ const MarketScreen = ({coins}) => {
     //   setSortKey('');
     //   setSortOrder('');
     // } else {
+      // setSortKey(key)
+      // setSortOrder(order);
       setSortKey(key)
-      setSortOrder(order);
+      if(sortorder == "asc" && order == "asc")
+        setSortOrder("desc");
+      else if(sortorder == "desc" && order == "desc")
+        setSortOrder("asc");
+      else
+      {
+        setSortOrder(order);
+      }
+
+
     // }
   };
 
