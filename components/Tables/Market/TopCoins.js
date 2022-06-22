@@ -54,9 +54,8 @@ const TopCoins = memo(({topcoin, unit, multiple}) => (
             <p style={{marginLeft: 5}}>BTC</p>
           </div>
           <div className='flex flex-v-center flex-space-between'>
-            {/* <p>{unit}{round(topcoin.btc[0]/multiple)}</p> */}
-            <p>{unit}{reduceDecimal(topcoin.btc[0])}</p>
-            <p className={topcoin.btc[1] > 0 ? 'green': 'red'}>{topcoin.btc[1] > 0 ? '+' : ''}{reduceDecimal(topcoin.btc[1])}%</p>
+            <p>{unit}{round(topcoin.btc[0]/multiple)}</p>
+            <p className={topcoin.btc[1] > 0 ? 'green': 'red'}>{topcoin.btc[1] > 0 ? '+' : ''}{round(topcoin.btc[1], 8)}%</p>
           </div>
         </div>
       </Link>
@@ -72,8 +71,8 @@ const TopCoins = memo(({topcoin, unit, multiple}) => (
             <p>ETH</p>
           </div>
           <div className='flex flex-v-center flex-space-between'>
-            <p>{unit}{reduceDecimal(topcoin.eth[0])}</p>
-            <p className={topcoin.eth[1] > 0 ? 'green': 'red'}>{topcoin.eth[1] > 0 ? '+' : ''}{reduceDecimal(topcoin.eth[1])}%</p>
+            <p>{unit}{round(topcoin.eth[0])}</p>
+            <p className={topcoin.eth[1] > 0 ? 'green': 'red'}>{topcoin.eth[1] > 0 ? '+' : ''}{round(topcoin.eth[1],8)}%</p>
           </div>
         </div>
       </Link>
@@ -89,8 +88,8 @@ const TopCoins = memo(({topcoin, unit, multiple}) => (
             <p style={{marginLeft: 5}}>DOGE</p>
           </div>
           <div className='flex flex-v-center flex-space-between'>
-            <p>{unit}{reduceDecimal(topcoin.doge[0])}</p>
-            <p className={topcoin.doge[1] > 0 ? 'green': 'red'}>{topcoin.doge[1] > 0 ? '+' : ''}{reduceDecimal(topcoin.doge[1])}%</p>
+            <p>{unit}{round(topcoin.doge[0])}</p>
+            <p className={topcoin.doge[1] > 0 ? 'green': 'red'}>{topcoin.doge[1] > 0 ? '+' : ''}{round(topcoin.doge[1],8)}%</p>
           </div>
         </div>
       </Link>
@@ -106,8 +105,8 @@ const TopCoins = memo(({topcoin, unit, multiple}) => (
             <p style={{marginLeft: 5}}>SHIB</p>
           </div>
           <div className='flex flex-v-center flex-space-between'>
-            <p>{unit}{reduceDecimal(topcoin.shib[0])}</p>
-            <p className={topcoin.shib[1] > 0 ? 'green': 'red'}>{topcoin.shib[1] > 0 ? '+' : ''}{reduceDecimal(topcoin.shib[1])}%</p>
+            <p>{unit}{round(topcoin.shib[0])}</p>
+            <p className={topcoin.shib[1] > 0 ? 'green': 'red'}>{topcoin.shib[1] > 0 ? '+' : ''}{round(topcoin.shib[1])}%</p>
           </div>
         </div>
       </Link>
