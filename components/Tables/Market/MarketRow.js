@@ -3,35 +3,37 @@ import PropTypes from 'prop-types';
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
-
-// eslint-disable-next-line react/jsx-props-no-spreading
-const renderTooltip = (props) => <Tooltip {...props} className="tooltip-area">
-  {props !== undefined && props.length > 0 && (
-    <table className='hover-table'>
-      <thead>
-        <tr>
-          <th>Pair</th>
-          <th>Price</th>
-          <th>Change</th>
-          <th>24H Volume</th>
-        </tr>
-      </thead>
-      <tbody>
-        {props !== undefined && props.map(item=>(
+const renderTooltip = (props) => <div {...props}>
+  {props != undefined && props.length > 0 && (
+    <Tooltip className="tooltip-area">
+      <table className='hover-table'>
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Price</th>
+            <th>Change</th>
+            <th>24H Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.map((item, index) => (
             <tr>
               <td>{item.display_name}</td>
               <td>{item.c}</td>
-              <td className={'trading-change ' + (item.P > 0 ? 'green': (item.P == '0.00' ? 'gray':'red'))} >{item.P > 0 ? '+' : ''}{item.P}</td>
+              <td className={'trading-change ' + (item.P > 0 ? 'green' : (item.P == '0.00' ? 'gray' : 'red'))} >{item.P > 0 ? '+' : ''}{item.P}</td>
               <td>{item.p}</td>
             </tr>
           ))}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </Tooltip>
   )}
-</Tooltip>;
+</div>;
 
-  const MarketRow = memo(({ item, index, multiple, unit }) => {
+
+const MarketRow = memo(({ item, index, multiple, unit, pairlist }) => {
   const [color, setColor] = useState('');
+  const [overData, setOverData] = useState([]);
 
   useEffect(() => {
     if (item.status === 1) {
@@ -39,6 +41,8 @@ const renderTooltip = (props) => <Tooltip {...props} className="tooltip-area">
     } else {
       setColor('red');
     }
+    var result = pairlist.find(x=>x.id == item.id);
+    setOverData(result);
   }, []);
 
   const price = item.price_change_percentage_24h;
@@ -49,7 +53,7 @@ const renderTooltip = (props) => <Tooltip {...props} className="tooltip-area">
     return Number(integer[0]).toLocaleString() + '.' + integer[1];
   }
 
-  function gotoPage () {
+  function gotoPage() {
     window.location = '/exchange';
   }
 
@@ -86,15 +90,15 @@ const renderTooltip = (props) => <Tooltip {...props} className="tooltip-area">
   //   </OverlayTrigger>
   // );
   return (
-    <OverlayTrigger 
+    <OverlayTrigger
       placement='bottom'
-      overlay={renderTooltip(item.pair)}
+      overlay={renderTooltip(overData.pair)}
     >
       <tr onClick={gotoPage}>
         <td className='markFavorite'>
           <div className='markFavorite-icon'>
             <i className='material-icons'>star_border</i>
-            <span style={{marginLeft:5, marginTop: 7, display:"inline-flex", verticalAlign:"top"}}>{index}</span>
+            <span style={{ marginLeft: 5, marginTop: 7, display: "inline-flex", verticalAlign: "top" }}>{index}</span>
           </div>
         </td>
         <td className='nowrap kks_text_left'>
@@ -110,7 +114,7 @@ const renderTooltip = (props) => <Tooltip {...props} className="tooltip-area">
           </span>
         </td>
         <td className='kks_text_center'>
-          <span className={price > 0 ? 'green': (price == '0.00' ? 'gray':'red')}>{price > 0 ? "" : ""} {price}%</span>
+          <span className={price > 0 ? 'green' : (price == '0.00' ? 'gray' : 'red')}>{price > 0 ? "" : ""} {price}%</span>
         </td>
         <td className='kks_text_center githyvxt_center'>{item.high_24h}</td>
         <td className='kks_text_center'>{item.low_24h}</td>

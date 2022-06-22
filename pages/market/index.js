@@ -80,6 +80,7 @@ const MarketScreen = ({coins}) => {
 
   const [count, setCount] = useState(20);
   const [coinList, setCoinList] = useState([]);
+  const [pairList, setPairList] = useState([]);
   const [coinNameList, setCoinNameList] = useState([]);
   const [sortCoin, setSortCoins] = useState([]);
   const [filterCoin, setFilterCoins] = useState([])
@@ -202,8 +203,16 @@ const MarketScreen = ({coins}) => {
         })
       })
       setData(datalist);
+      setPairList(all_coins);
       setAllSymbol([...all_symbols]);
       setLoaded(true);
+
+      filteredCoins = datalist.filter(coin =>
+        (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
+      );
+      sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
+  
+      setSortCoins(sortedCoins);
     })
   };
 
@@ -382,7 +391,7 @@ const MarketScreen = ({coins}) => {
   useEffect( async () => {
     const pair_list = ['USDT', 'USD', 'BNB', 'BTC', 'ETH'];
     var result = [];
-    var tempData = data;
+    var tempData = pairList;
 
     const route = "https://api.binance.com/api/v3/ticker/24hr";
     var res = await axios.get(route);
@@ -396,7 +405,7 @@ const MarketScreen = ({coins}) => {
       pair_list.map((pairItem) => {
         var find_name = tempItem.symbol.toLowerCase() + pairItem.toLowerCase();
         var find_data = result.find(x=>x.symbol == find_name.toUpperCase());
-        if(find_data != undefined){
+        if(find_data != undefined && find_data['last_price'] != 0){
           var find_index = tempData.findIndex(x=>find_data.symbol.toLowerCase().includes(x.symbol.toLowerCase()));
           if(find_index > -1){
             find_data['display_name'] = (tempItem.symbol.toLowerCase() + '/' + pairItem.toLowerCase()).toUpperCase();
@@ -410,15 +419,15 @@ const MarketScreen = ({coins}) => {
       })
       var temp = {};
       if(cnt == 0){
-        console.log(tempItem);
+        // console.log(tempItem);
         temp['display_name'] = (tempItem.symbol.toLowerCase() + '/' + "usd").toUpperCase();
-        temp['c'] = tempItem.current_price;
-        temp['P'] = tempItem.price_change_percentage_24h;
-        temp['p'] = tempItem.total_volume;
+        temp['c'] = tempItem['current_price'];
+        temp['P'] = tempItem['price_change_percentage_24h'];
+        temp['p'] = tempItem['total_volume'];
         tempItem.pair.push(temp);
       }
     })
-    setData(tempData);
+    setPairList(tempData);
 
     filteredCoins = tempData.filter(coin =>
       (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
@@ -569,8 +578,8 @@ const MarketScreen = ({coins}) => {
                 {loaded && sortedCoins.map((item, index) => (
                   <>
                     {index >= (current_page - 1) * count && index < current_page * count && (
-                      <MarketRow key={item.id.toString()} item={JSON.parse(JSON.stringify(item))} index={index + 1} multiple={multiple} unit={unit}/>
-                    )}
+                      <MarketRow key={item.id.toString()} item={JSON.parse(JSON.stringify(item))} index={index + 1} multiple={multiple} unit={unit} pairlist={pairList}/>
+                    )} 
                   </>
                 ))}
               </tbody>
