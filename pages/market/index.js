@@ -86,6 +86,9 @@ const MarketScreen = ({coins}) => {
   const [filterCoin, setFilterCoins] = useState([])
 
   const reduceDecimal = (item) => {
+    console.log(item);
+    
+
     let dnum = item < 0 ? item - Math.ceil(item) : item - Math.floor(item);
     let num = item - dnum;
     let str = dnum < 0 ? String(dnum).slice(3) : String(dnum).slice(2);
@@ -95,16 +98,31 @@ const MarketScreen = ({coins}) => {
     let result = 0;
 
     for(var i = 0 ; i < array.length; i++){
-      if(array[i] == 0) index = i;
-      else index = 0;
+      if(array[i] != 0) {
+        index = i;
+        break;
+      }else {
+        index = 0;
+      }
     }
     
     if(num <= 0){
-      for (var j = index; j < index + 3; j++) {
-        value += '' + (array[j] != null ? array[j] : '');
+      item = String(item);
+      if(!item.includes('e')){
+        for (var j = index; j < index + 3; j++) {
+          value += '' + (array[j] != null ? array[j] : '');
+        }
+  
+        var lll = '';
+        for(var l = 0; l < index; l++){
+          lll += '0';
+        }
+        result = num + '.' + lll + value;
+        item = parseFloat(result);
+      } else {
+        item = item;
       }
-      result = num + '.' + value;
-      item = parseFloat(result);
+        
     } else {
       for (var k = index; k < index + 2; k++) {
         value += '' + (array[k] != null ? array[k] : '');
@@ -116,6 +134,7 @@ const MarketScreen = ({coins}) => {
   }
 
   const apiFunction = async () => {
+
     var all_coins = [];
     var all_symbols = [];
     var coin_list_string = "";
@@ -141,15 +160,7 @@ const MarketScreen = ({coins}) => {
       });
       setTradePrice(tradeTypes);
       all_coins = [...new_data];
-      const btc = res.data.find(x=>x.symbol === "btc");
-      const eth = res.data.find(x=>x.symbol === "eth");
-      const doge = res.data.find(x=>x.symbol === "doge");
-      const shib = res.data.find(x=>x.symbol === "shib");
-      if (btc !== undefined) topcoin.btc = [btc.current_price, btc.price_change_percentage_24h]; 
-      if (eth !== undefined) topcoin.eth = [eth.current_price, eth.price_change_percentage_24h];
-      if (doge !== undefined) topcoin.doge = [doge.current_price, doge.price_change_percentage_24h];
-      if (shib !== undefined) topcoin.shib = [shib.current_price, shib.price_change_percentage_24h];
-      setTopcoin({...topcoin});
+      
     }
 
     res = await axios.get(url2);
@@ -175,45 +186,47 @@ const MarketScreen = ({coins}) => {
     }
 
     setCoinList(coin_list_string);
-   
     
-    const routine = "https://api.coingecko.com/api/v3/simple/price?ids=" + coin_list_string + "&vs_currencies=" + vscurrency + "&include_24hr_vol=true&include_24hr_change=true";
-    res = await axios.get(routine).then( res => {
-      var namelist = [];
+    // const routine = "https://api.coingecko.com/api/v3/simple/price?ids=" + coin_list_string + "&vs_currencies=" + vscurrency + "&include_24hr_vol=true&include_24hr_change=true";
+    // res = await axios.get(routine).then( res => {
+    //   var namelist = [];
+    //   var keys = Object.keys(res.data);
+    //   keys.forEach(key =>{
+    //     namelist.push(key);
+    //   });
 
-      var keys = Object.keys(res.data);
-      keys.forEach(key =>{
-        namelist.push(key);
-      });
+      
+    all_coins.map((item, index) => {
+        item.price_change_percentage_24h = reduceDecimal(item.price_change_percentage_24h);
+        item.total_volume = reduceDecimal(item.total_volume / 1000000);
+        item.current_price = reduceDecimal(item.current_price);
+        item.high_24h = reduceDecimal(item.high_24h);
+        item.low_24h = reduceDecimal(item.low_24h);
+        item.price_change_24h = reduceDecimal(item.price_change_24h);
+    })
 
-      var datalist = all_coins;
-      namelist.map((name, index) => {
-        datalist.map((item, index) => {
-          if(name == item.id){
-            var name_24h_vol = vscurrency + "_24h_vol";
+      const btc = all_coins.find(x=>x.symbol === "btc");
+      const eth = all_coins.find(x=>x.symbol === "eth");
+      const doge = all_coins.find(x=>x.symbol === "doge");
+      const shib = all_coins.find(x=>x.symbol === "shib");
+      if (btc !== undefined) topcoin.btc = [reduceDecimal(btc.current_price), reduceDecimal(btc.price_change_percentage_24h)]; 
+      if (eth !== undefined) topcoin.eth = [reduceDecimal(eth.current_price), reduceDecimal(eth.price_change_percentage_24h)];
+      if (doge !== undefined) topcoin.doge = [reduceDecimal(doge.current_price), reduceDecimal(doge.price_change_percentage_24h)];
+      if (shib !== undefined) topcoin.shib = [reduceDecimal(shib.current_price), reduceDecimal(shib.price_change_percentage_24h)];
+      setTopcoin({...topcoin});
 
-            item.price_change_percentage_24h = reduceDecimal(item.price_change_percentage_24h);
-            item.total_volume = reduceDecimal(res.data[name][name_24h_vol]/ 1000000);
-
-            item.current_price = reduceDecimal(item.current_price);
-            item.high_24h = reduceDecimal(item.high_24h);
-            item.low_24h = reduceDecimal(item.low_24h);
-            item.price_change_24h = reduceDecimal(item.price_change_24h);
-          }
-        })
-      })
-      setData(datalist);
+      setData(all_coins);
       setPairList(all_coins);
       setAllSymbol([...all_symbols]);
       setLoaded(true);
 
-      filteredCoins = datalist.filter(coin =>
+      filteredCoins = all_coins.filter(coin =>
         (coin.name !== undefined && coin.name.toLowerCase().includes(keyword.toLowerCase()) || (coin.symbol !== undefined && coin.symbol.toLowerCase().includes(keyword.toLowerCase()))) && coin.name != "Tenset"
       );
       sortedCoins = orderBy(filteredCoins, sortkey, sortorder);
   
       setSortCoins(sortedCoins);
-    })
+    // })
   };
 
 
@@ -355,7 +368,6 @@ const MarketScreen = ({coins}) => {
   //     ws.onopen = (event) => {
   //     };
   //     ws.onmessage = function (event) {
-  //       console.log(event);
   //       var eventData = JSON.parse(event.data);
         
   //       // var eventData = JSONDATA;
@@ -419,7 +431,6 @@ const MarketScreen = ({coins}) => {
       })
       var temp = {};
       if(cnt == 0){
-        // console.log(tempItem);
         temp['display_name'] = (tempItem.symbol.toLowerCase() + '/' + "usd").toUpperCase();
         temp['c'] = tempItem['current_price'];
         temp['P'] = tempItem['price_change_percentage_24h'];

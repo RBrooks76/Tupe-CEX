@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
-const renderTooltip = (props) => <div {...props}>
+const renderTooltip = (props) => <Tooltip {...props} className="tooltip-area">
   {props != undefined && props.length > 0 && (
-    <Tooltip className="tooltip-area">
       <table className='hover-table'>
         <thead>
           <tr>
@@ -26,9 +25,8 @@ const renderTooltip = (props) => <div {...props}>
           ))}
         </tbody>
       </table>
-    </Tooltip>
   )}
-</div>;
+  </Tooltip>;
 
 
 const MarketRow = memo(({ item, index, multiple, unit, pairlist }) => {

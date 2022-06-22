@@ -10,6 +10,7 @@ function round(x, fix = 8) {
 }
 
 const reduceDecimal = (item) => {
+  console.log(item);
   let dnum = item < 0 ? item - Math.ceil(item) : item - Math.floor(item);
   let num = item - dnum;
   let str = dnum < 0 ? String(dnum).slice(3) : String(dnum).slice(2);
@@ -19,16 +20,26 @@ const reduceDecimal = (item) => {
   let result = 0;
 
   for(var i = 0 ; i < array.length; i++){
-    if(array[i] == 0) index = i;
-    else index = 0;
+    if(array[i] != 0) {
+      index = i;
+      break;
+    }else {
+      index = 0;
+    }
   }
   
   if(num <= 0){
-    for (var j = index; j < index + 3; j++) {
-      value += '' + (array[j] != null ? array[j] : '');
-    }
-    result = num + '.' + value;
-    item = parseFloat(result);
+      for (var j = index; j < index + 3; j++) {
+        value += '' + (array[j] != null ? array[j] : '');
+      }
+
+      var lll = '';
+      for(var l = 0; l < index; l++){
+        lll += '0';
+      }
+      result = num + '.' + lll + value;
+      item = parseFloat(result);
+    
   } else {
     for (var k = index; k < index + 2; k++) {
       value += '' + (array[k] != null ? array[k] : '');
@@ -54,8 +65,8 @@ const TopCoins = memo(({topcoin, unit, multiple}) => (
             <p style={{marginLeft: 5}}>BTC</p>
           </div>
           <div className='flex flex-v-center flex-space-between'>
-            <p>{unit}{round(topcoin.btc[0]/multiple)}</p>
-            <p className={topcoin.btc[1] > 0 ? 'green': 'red'}>{topcoin.btc[1] > 0 ? '+' : ''}{round(topcoin.btc[1], 8)}%</p>
+            <p>{unit}&nbsp;{(topcoin.btc[0])}</p>
+            <p className={topcoin.btc[1] > 0 ? 'green': 'red'}>{topcoin.btc[1] > 0 ? '+' : ''}{(topcoin.btc[1])}%</p>
           </div>
         </div>
       </Link>
@@ -71,8 +82,8 @@ const TopCoins = memo(({topcoin, unit, multiple}) => (
             <p>ETH</p>
           </div>
           <div className='flex flex-v-center flex-space-between'>
-            <p>{unit}{round(topcoin.eth[0])}</p>
-            <p className={topcoin.eth[1] > 0 ? 'green': 'red'}>{topcoin.eth[1] > 0 ? '+' : ''}{round(topcoin.eth[1],8)}%</p>
+            <p>{unit}&nbsp;{(topcoin.eth[0])}</p>
+            <p className={topcoin.eth[1] > 0 ? 'green': 'red'}>{topcoin.eth[1] > 0 ? '+' : ''}{(topcoin.eth[1])}%</p>
           </div>
         </div>
       </Link>
@@ -88,8 +99,8 @@ const TopCoins = memo(({topcoin, unit, multiple}) => (
             <p style={{marginLeft: 5}}>DOGE</p>
           </div>
           <div className='flex flex-v-center flex-space-between'>
-            <p>{unit}{round(topcoin.doge[0])}</p>
-            <p className={topcoin.doge[1] > 0 ? 'green': 'red'}>{topcoin.doge[1] > 0 ? '+' : ''}{round(topcoin.doge[1],8)}%</p>
+            <p>{unit}&nbsp;{(topcoin.doge[0])}</p>
+            <p className={topcoin.doge[1] > 0 ? 'green': 'red'}>{topcoin.doge[1] > 0 ? '+' : ''}{(topcoin.doge[1])}%</p>
           </div>
         </div>
       </Link>
@@ -105,8 +116,8 @@ const TopCoins = memo(({topcoin, unit, multiple}) => (
             <p style={{marginLeft: 5}}>SHIB</p>
           </div>
           <div className='flex flex-v-center flex-space-between'>
-            <p>{unit}{round(topcoin.shib[0])}</p>
-            <p className={topcoin.shib[1] > 0 ? 'green': 'red'}>{topcoin.shib[1] > 0 ? '+' : ''}{round(topcoin.shib[1])}%</p>
+            <p>{unit}&nbsp;{topcoin.shib[0]}</p>
+            <p className={topcoin.shib[1] > 0 ? 'green': 'red'}>{topcoin.shib[1] > 0 ? '+' : ''}{(topcoin.shib[1])}%</p>
           </div>
         </div>
       </Link>
