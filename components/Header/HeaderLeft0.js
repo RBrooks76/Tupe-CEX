@@ -56,55 +56,48 @@ const HeaderLeft = memo(() => {
             </Link>
           </li>
           <li>
-            {/* <a>
-              More<i class="fa fa-caret-down"></i>
-            </a> */}
-            <ol>
-              <li>
-                <Link href='/launchpad'>
-                  <span
-                    className={
-                      router.pathname.toLowerCase().includes('/launchpad') ? 'active' : 'passive'
-                    }
-                  >
-                    Launchpad
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href='/announcement'>
-                  <span
-                    className={
-                      router.pathname.toLowerCase().includes('/announcement') ? 'active' : 'passive'
-                    }
-                  >
-                    Announcement
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href='/slotandauction'>
-                  <span
-                    className={
-                      router.pathname.toLowerCase().includes('/slotandauction') ? 'active' : 'passive'
-                    }
-                  >
-                    Slot Auction
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href='/vote-listing'>
-                  <span
-                    className={
-                      router.pathname.toLowerCase().includes('/vote-listing') ? 'active' : 'passive'
-                    }
-                  >
-                    Vote Listing
-                  </span>
-                </Link>
-              </li>
-            </ol>
+            <Link href='/launchpad'>
+              <span
+                className={
+                  router.pathname.toLowerCase().includes('/launchpad') ? 'active' : 'passive'
+                }
+              >
+                Launchpad
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link href='/announcement'>
+              <span
+                className={
+                  router.pathname.toLowerCase().includes('/announcement') ? 'active' : 'passive'
+                }
+              >
+                Announcement
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link href='/slotandauction'>
+              <span
+                className={
+                  router.pathname.toLowerCase().includes('/slotandauction') ? 'active' : 'passive'
+                }
+              >
+                Slot Auction
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link href='/vote-listing'>
+              <span
+                className={
+                  router.pathname.toLowerCase().includes('/vote-listing') ? 'active' : 'passive'
+                }
+              >
+                Vote Listing
+              </span>
+            </Link>
           </li>
         </ul>
       </div>

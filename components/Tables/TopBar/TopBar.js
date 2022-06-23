@@ -9,6 +9,8 @@ const TopBar = memo(({ searchValue, searchOnChange, searchSubmit, handleTopButto
     setCount(e.target.value);
   }
 
+  const countNum = [50, 100, 465];
+
   return (
     <div className='top-buttons'>
       <div  className='flex kks_flex_between mt-2 mr-5'>
@@ -32,9 +34,9 @@ const TopBar = memo(({ searchValue, searchOnChange, searchSubmit, handleTopButto
         {/* <div className='flex kks-search-separate-select'></div> */}
         <div className='top_search no_select kks_select_count_border'>
             <select name='countCoins' id='countCoins' className='flex-grow-2 kks_count_select' onChange={ e => onChooseCoinCount(e)}>
-              <option className='kks_count_select_option' value='20'>20</option>
               <option className='kks_count_select_option' value='50'>50</option>
               <option className='kks_count_select_option' value='100'>100</option>
+              <option className='kks_count_select_option' value='465'>All</option>
             </select>
         </div>
       </div>

@@ -78,7 +78,7 @@ const MarketScreen = ({coins}) => {
   const [url24h, setUrl24h] = useState('');
   const [vscurrency, setVscurrency] = useState('usd');
 
-  const [count, setCount] = useState(20);
+  const [count, setCount] = useState(50);
   const [coinList, setCoinList] = useState([]);
   const [pairList, setPairList] = useState([]);
   const [coinNameList, setCoinNameList] = useState([]);
@@ -86,9 +86,6 @@ const MarketScreen = ({coins}) => {
   const [filterCoin, setFilterCoins] = useState([])
 
   const reduceDecimal = (item) => {
-    console.log(item);
-    
-
     let dnum = item < 0 ? item - Math.ceil(item) : item - Math.floor(item);
     let num = item - dnum;
     let str = dnum < 0 ? String(dnum).slice(3) : String(dnum).slice(2);
@@ -96,15 +93,19 @@ const MarketScreen = ({coins}) => {
     let index = 0;
     let value = '';
     let result = 0;
-
-    for(var i = 0 ; i < array.length; i++){
-      if(array[i] != 0) {
-        index = i;
-        break;
-      }else {
-        index = 0;
+    if(array.length != 0){
+      for(var i = 0 ; i < array.length; i++){
+        if(array[i] != 0) {
+          index = i;
+          break;
+        }else {
+          index = 0;
+        }
       }
+    } else {
+      // return item+'.00';
     }
+    
     
     if(num <= 0){
       item = String(item);
@@ -547,36 +548,36 @@ const MarketScreen = ({coins}) => {
                       <ArrowDropDownIcon style={sortkey === 'symbol' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('symbol', 'asc')}/>
                     </span>
                   </th>
-                  <th className='kks_text_center' style={{width:"160px"}}>&nbsp;</th>
-                  <th className='kks_text_center' style={{width:"14%"}}>
+                  <th className='left' style={{width:"160px"}}>&nbsp;</th>
+                  <th className='right' style={{width:"14%"}}>
                     <span style={{marginRight: 15}} onClick={()=>sort('', '')}>Price</span>
                     <span style={arrow}>
                       <ArrowDropUpIcon style={sortkey === 'current_price' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('current_price', 'asc')}/>
                       <ArrowDropDownIcon style={sortkey === 'current_price' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('current_price', 'desc')}/>
                     </span>
                   </th>
-                  <th className='kks_text_center' style={{width:"14%"}}>
+                  <th className='right' style={{width:"14%"}}>
                     <span style={{marginRight: 15}} onClick={()=>sort('', '')}>24H Change</span>
                     <span style={arrow}>
                       <ArrowDropUpIcon style={sortkey === 'price_change_percentage_24h' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('price_change_percentage_24h', 'asc')}/>
                       <ArrowDropDownIcon style={sortkey === 'price_change_percentage_24h' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('price_change_percentage_24h', 'desc')}/>
                     </span>
                   </th>
-                  <th className='kks_text_center' style={{width:"14%"}}>
+                  <th className='right' style={{width:"14%"}}>
                     <span style={{marginRight: 15}} onClick={()=>sort('', '')}>24H High</span>
                     <span style={arrow}>
                       <ArrowDropUpIcon style={sortkey === 'high_24h' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('high_24h', 'asc')}/>
                       <ArrowDropDownIcon style={sortkey === 'high_24h' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('high_24h', 'desc')}/>
                     </span>
                   </th>
-                  <th className='kks_text_center' style={{width:"14%"}}>
+                  <th className='right' style={{width:"14%"}}>
                     <span style={{marginRight: 15}} onClick={()=>sort('', '')}>24H Low</span>
                     <span style={arrow}>
                       <ArrowDropUpIcon style={sortkey === 'low_24h' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('low_24h', 'asc')}/>
                       <ArrowDropDownIcon style={sortkey === 'low_24h' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('low_24h', 'desc')}/>
                       </span>
                     </th>
-                  <th className='kks_text_center' style={{width:"14%"}}>
+                  <th className='right' style={{width:"14%"}}>
                     <span style={{marginRight: 15}} onClick={()=>sort('', '')}>24H Volume</span>
                     <span style={arrow}>
                       <ArrowDropUpIcon style={sortkey === 'total_volume' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('total_volume', 'asc')}/>

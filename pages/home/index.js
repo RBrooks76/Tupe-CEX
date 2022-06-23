@@ -44,6 +44,56 @@ const selectedArrowUp = {
   color: 'black',
 };
 
+const reduceDecimal = (item) => {
+  let dnum = item < 0 ? item - Math.ceil(item) : item - Math.floor(item);
+  let num = item - dnum;
+  let str = dnum < 0 ? String(dnum).slice(3) : String(dnum).slice(2);
+  let array = str.split('');
+  let index = 0;
+  let value = '';
+  let result = 0;
+  if(array.length != 0){
+    for(var i = 0 ; i < array.length; i++){
+      if(array[i] != 0) {
+        index = i;
+        break;
+      }else {
+        index = 0;
+      }
+    }
+  } else {
+    // return item+'.00';
+  }
+  
+  
+  if(num <= 0){
+    item = String(item);
+    if(!item.includes('e')){
+      for (var j = index; j < index + 3; j++) {
+        value += '' + (array[j] != null ? array[j] : '');
+      }
+
+      var lll = '';
+      for(var l = 0; l < index; l++){
+        lll += '0';
+      }
+      result = num + '.' + lll + value;
+      item = parseFloat(result);
+    } else {
+      item = item;
+    }
+      
+  } else {
+    for (var k = index; k < index + 2; k++) {
+      value += '' + (array[k] != null ? array[k] : '');
+    }
+    result = num + '.' + value;
+    item = parseFloat(result);
+  }
+  return item;
+}
+
+
 // eslint-disable-next-line react/jsx-props-no-spreading
 const renderTooltip = (props) => <Tooltip {...props} className="tooltip-area">
   <table className='hover-table'>
@@ -75,6 +125,15 @@ export default function HomeScreen() {
   const [sortkey, setSortKey] = useState('');
   const [sortorder, setSortOrder] = useState('');
   const [loaded, setLoaded] = useState(false);
+
+  const trade_data = new Map([
+    ["ETHUSD", "ETHEREUM"],
+    ["BTCUSD", "BITCOIN"], 
+    ["GALAUSDT","GALA"], 
+    ["SHIBUSDT", "SHIB"], 
+    ["DOTUSDT", "DOT"]
+  ]); 
+
   const trading_init = [
     {
       image: "https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/ETH_1_LOGO.png",
@@ -235,7 +294,7 @@ export default function HomeScreen() {
   };
 
   const spotStyle = {
-    marginTop: 50,
+    // marginTop: 50,
     minWidth: 'auto',
     width: 'inherit',
   };
@@ -2259,6 +2318,142 @@ export default function HomeScreen() {
               </div>
             </div>
           </div>
+          <div class="news common-width">
+            <div class="news_wrap">
+              <div class="marquee2_wrap marquee2_pr">
+                <div class="marquee2">
+                  <ul style={{height: '900px'}}>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6974486730519-Announcement-on-the-Suspension-of-BEP20-SUSHI-and-ERC20-SUSHI-Withdrawal-Functions-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Suspension of BEP20-SUSHI and ERC20-SUSHI Withdrawal Functions on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6972694758935-Announcement-on-the-Reopening-of-Deposit-and-Withdrawal-Function-of-All-Tokens-on-AYA-Chain-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Reopening of Deposit and Withdrawal Function of All Tokens on AYA Chain on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6972481369239-Hotbit-s-Announcement-Regarding-the-Suspension-on-the-Deposit-and-Withdrawal-Functions-of-All-Tokens-Based-on-AYA-Chain-Starting-From-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Hotbit’s Announcement Regarding the Suspension on the Deposit and Withdrawal Functions of All Tokens Based on AYA Chain Starting From June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-23</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6972372691607-Hotbit-will-launch-WELL-Moonwell-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Hotbit will launch WELL(Moonwell) on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6971677500823-Announcement-on-the-Suspension-of-ZIK-Trading-Function-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Suspension of ZIK Trading Function on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6974486730519-Announcement-on-the-Suspension-of-BEP20-SUSHI-and-ERC20-SUSHI-Withdrawal-Functions-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Suspension of BEP20-SUSHI and ERC20-SUSHI Withdrawal Functions on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6972694758935-Announcement-on-the-Reopening-of-Deposit-and-Withdrawal-Function-of-All-Tokens-on-AYA-Chain-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Reopening of Deposit and Withdrawal Function of All Tokens on AYA Chain on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6972481369239-Hotbit-s-Announcement-Regarding-the-Suspension-on-the-Deposit-and-Withdrawal-Functions-of-All-Tokens-Based-on-AYA-Chain-Starting-From-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Hotbit’s Announcement Regarding the Suspension on the Deposit and Withdrawal Functions of All Tokens Based on AYA Chain Starting From June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-23</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6972372691607-Hotbit-will-launch-WELL-Moonwell-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Hotbit will launch WELL(Moonwell) on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6971677500823-Announcement-on-the-Suspension-of-ZIK-Trading-Function-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Suspension of ZIK Trading Function on June 23rd, 2022
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="marquee2_wrap marquee2_pl">
+                <div class="marquee2">
+                  <ul style={{height: '900px'}}>
+                    <li>
+                      <span class="date">06-23</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6971329692183-Hotbit-s-Announcement-Regarding-the-Suspension-on-the-Deposit-and-Withdrawal-Functions-of-All-Tokens-Based-on-BTCV-Chain-Starting-From-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Hotbit’s Announcement Regarding the Suspension on the Deposit and Withdrawal Functions of All Tokens Based on BTCV Chain Starting From June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6971289015831-Announcement-on-the-Suspension-of-TRX-Withdrawal-Function-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Suspension of TRX Withdrawal Function on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6970680896791-Announcement-on-the-Suspension-of-SAFELAMBO-Deposit-Withdrawal-and-Trading-Functions-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Suspension of SAFELAMBO Deposit, Withdrawal and Trading Functions on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6970601960727-Announcement-on-the-Reopening-Trading-Function-of-XCN-on-June-21st-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Reopening Trading Function of XCN on June 21st, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6970598112279-Announcement-on-the-Reopening-Withdrawal-Function-of-XCN-on-June-21st-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Reopening Withdrawal Function of XCN on June 21st, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-23</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6971329692183-Hotbit-s-Announcement-Regarding-the-Suspension-on-the-Deposit-and-Withdrawal-Functions-of-All-Tokens-Based-on-BTCV-Chain-Starting-From-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Hotbit’s Announcement Regarding the Suspension on the Deposit and Withdrawal Functions of All Tokens Based on BTCV Chain Starting From June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6971289015831-Announcement-on-the-Suspension-of-TRX-Withdrawal-Function-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Suspension of TRX Withdrawal Function on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6970680896791-Announcement-on-the-Suspension-of-SAFELAMBO-Deposit-Withdrawal-and-Trading-Functions-on-June-23rd-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Suspension of SAFELAMBO Deposit, Withdrawal and Trading Functions on June 23rd, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6970601960727-Announcement-on-the-Reopening-Trading-Function-of-XCN-on-June-21st-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Reopening Trading Function of XCN on June 21st, 2022
+                      </a>
+                    </li>
+                    <li>
+                      <span class="date">06-24</span> 
+                      <a href="https://hotbit.zendesk.com/hc/en-us/articles/6970598112279-Announcement-on-the-Reopening-Withdrawal-Function-of-XCN-on-June-21st-2022" target="_blank" class="col-sm-10 col-xs-8 news_title">
+                        Announcement on the Reopening Withdrawal Function of XCN on June 21st, 2022
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className='markets-data common-width' style={spotStyle}>
             <ol className='exchange-type'>
               <li className='active-type'>Spot Trading</li>
@@ -2275,7 +2470,7 @@ export default function HomeScreen() {
                     <th className="trading-change"><span style={{marginRight: 15}}>Open</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'o' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('o', 'asc')}/><ArrowDropDownIcon style={sortkey === 'o' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('o', 'desc')}/></span></th>
                     <th className="trading-change"><span style={{marginRight: 15}}>High</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'h' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('h', 'asc')}/><ArrowDropDownIcon style={sortkey === 'h' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('h', 'desc')}/></span></th>
                     <th className="trading-change"><span style={{marginRight: 15}}>Low</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'l' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('l', 'asc')}/><ArrowDropDownIcon style={sortkey === 'l' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('l', 'desc')}/></span></th>
-                    <th className="trading-change"><span style={{marginRight: 15}}>Prev</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'a' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('a', 'asc')}/><ArrowDropDownIcon style={sortkey === 'a' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('a', 'desc')}/></span></th>
+                    <th className="trading-change"><span style={{marginRight: 15}}>24h Volume</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'a' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('a', 'asc')}/><ArrowDropDownIcon style={sortkey === 'a' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('a', 'desc')}/></span></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2288,16 +2483,16 @@ export default function HomeScreen() {
                           <td className='trading-name'>
                             <div style={{display: 'flex'}}>
                               <img src={item.image} alt=''/>
-                              <strong>{item.name}</strong>
+                              <strong>{trade_data.get(item.name)}</strong>
                             </div>
                           </td>
-                          <td className='trading-change'>{item.c}</td>
+                          <td className='trading-change'>{reduceDecimal(item.c)}</td>
                           {/* <td className={'trading-change ' + (item.p > 0 ? 'green': (item.p == '0.00' ? 'gray':'red'))} >{item.p > 0 ? '+' : ''}{item.p}</td> */}
-                          <td className={'trading-change ' + (item.P > 0 ? 'green': (item.P == '0.00' ? 'gray':'red'))} >{item.P > 0 ? '+' : ''}{item.P}</td>
-                          <td className='trading-change'>{item.o}</td>
-                          <td className='trading-change'>{item.h}</td>
-                          <td className='trading-change'>{item.l}</td>
-                          <td className='trading-change'>{item.a}</td>
+                          <td className={'trading-change ' + (item.P > 0 ? 'green': (item.P == '0.00' ? 'gray':'red'))} >{item.P > 0 ? '+' : ''}{reduceDecimal(item.P)}</td>
+                          <td className='trading-change'>{reduceDecimal(item.o)}</td>
+                          <td className='trading-change'>{reduceDecimal(item.h)}</td>
+                          <td className='trading-change'>{reduceDecimal(item.l)}</td>
+                          <td className='trading-change'>{reduceDecimal(item.p)}</td>
                         </tr>
                       </OverlayTrigger>
                     ))}

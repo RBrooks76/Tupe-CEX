@@ -103,20 +103,20 @@ const MarketRow = memo(({ item, index, multiple, unit, pairlist }) => {
           <div className='icon cover' style={{ backgroundImage: `url('${item.image}')` }} />
           <span>{item.symbol.toUpperCase()}</span>
         </td>
-        <td className='nowrap kks_text_center'>
+        <td className='nowrap left'>
           <span>{item.name}</span>
         </td>
-        <td className='kks_text_center'>
+        <td className='right'>
           <span>
             {unit} {item.current_price}
           </span>
         </td>
-        <td className='kks_text_center'>
+        <td className='right'>
           <span className={price > 0 ? 'green' : (price == '0.00' ? 'gray' : 'red')}>{price > 0 ? "" : ""} {price}%</span>
         </td>
-        <td className='kks_text_center githyvxt_center'>{item.high_24h}</td>
-        <td className='kks_text_center'>{item.low_24h}</td>
-        <td className='kks_text_center'>{(item.total_volume)}M</td>
+        <td className='right githyvxt_center'>{item.high_24h}</td>
+        <td className='right'>{item.low_24h}</td>
+        <td className='right'>{(item.total_volume)}M</td>
       </tr>
     </OverlayTrigger>
   );

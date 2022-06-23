@@ -1189,10 +1189,11 @@ a i {
 
 header {
   margin-bottom: 40px;
+  background-color : #12161c!important;
 }
 
 header  .header-left .logo {
-  margin-right: 8rem;
+  /* margin-right: 8rem; */
   cursor: pointer;
 }
 
@@ -1272,11 +1273,11 @@ header .header-left ul,
 header .header-left ul li {
   position: relative;
   display: inline-block;
-}
+} 
 
 header .header-left .header-menu span {
   margin: 0 2px;
-  color: #999999;
+  color: #ffffff;
   font-weight: 600;
   padding: 10px 15px;
   border-radius: 25px;
@@ -84351,3 +84352,38 @@ input[type=password] {
   width : 140px;
 }
 
+.marquee2 ul li{
+  animation: 2s anim-lineUp ease-out infinite;
+}
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.news .marquee2 .news_title {
+  font-size: 12px;
+  color: #eaeaea;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0;
+}
+
+.marquee2 ul li a{
+  width : 80%;
+  margin-right: 20px;
+}
