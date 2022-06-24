@@ -136,9 +136,9 @@ export default function HomeScreen() {
 
   const trade_strong_data = new Map([
     ["ETHUSD", "ETH"],
-    ["BTCUSD", "NIT"], 
+    ["BTCUSD", "BIT"], 
     ["GALAUSDT", "GALA"], 
-    ["SHIBUSDT", "ShIB"], 
+    ["SHIBUSDT", "SHIB"], 
     ["DOTUSDT", "DDT"]
   ])
 
