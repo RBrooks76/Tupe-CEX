@@ -610,7 +610,7 @@ body {
 }
 
 .right {
-  text-align: right;
+  text-align: right!important;
 }
 
 .nowrap {
@@ -84387,3 +84387,38 @@ input[type=password] {
   width : 80%;
   margin-right: 20px;
 }
+
+/* .banner-index-poster-box[data-v-4654f51e]>div {
+  height : 250px!important;
+} */
+
+/* @media (min-width : 680px){
+  .banner-index-poster-box[data-v-4654f51e]>div {
+    width: 50%;
+  }
+  
+  .banner-index-quotations[data-v-4654f51e] {
+    overflow: hidden;
+    height: 100%;
+    margin-top: 0px!important;
+  }
+} */
+
+@media (max-width : 400px){
+  .trading-table .trading-change:nth-child(4){ 
+    display : none;
+  }
+
+  .trading-table .trading-change:nth-child(5){
+    display : none;
+  }
+
+  .trading-table .trading-change:nth-child(6){
+    display : none;
+  }
+
+  .trading-table .trading-change:nth-child(7){
+    display : none;
+  }
+}
+
