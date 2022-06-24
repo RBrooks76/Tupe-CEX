@@ -21,10 +21,17 @@ const HeaderRight = memo(({ tabs }) => {
   return (
     <div className='header-right no-select'>
       <div className='flex flex-center'>
+          <button className='register-btn'>
+            Register
+          </button>
+          <button className='login-btn'>
+            Login
+          </button>
         <ul className='header-menu nowrap'>
+          
           <button
             type='button'
-            className='pointer'
+            className='pointer choose-language'
             name='English|USD'
             onClick={() => handleMenuOpen()}
           >

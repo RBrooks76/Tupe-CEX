@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import HeaderLeft from './HeaderLeft0';
+import HeaderLeft from './HeaderLeft';
 import HeaderRight from './HeaderRight';
 
 const Header = memo(() => {

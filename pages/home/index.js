@@ -142,8 +142,6 @@ export default function HomeScreen() {
     ["DOTUSDT", "DDT"]
   ])
 
-  const [tradeData, setTradeData] = useState(trade_data);
-
   const trading_init = [
     {
       image: "https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/ETH_1_LOGO.png",
@@ -188,6 +186,8 @@ export default function HomeScreen() {
     }
   ]
   const [trading, setTrading] = useState(trading_init);
+  const [height, setHeight] = useState(0);
+
   const marketChartProps = {
     width: '100%',
     marginLeft: 100,
@@ -222,8 +222,8 @@ export default function HomeScreen() {
   };
 
   useEffect(()=>{
-
-  }, []);
+    
+  }, [height]);
 
   useEffect(() => {
     const localToken = localStorage.getItem('token');
@@ -324,6 +324,8 @@ export default function HomeScreen() {
     window.location = '/exchange';
   }
 
+
+
   return (
     <MainLayout>
       <Head>
@@ -357,8 +359,8 @@ export default function HomeScreen() {
                 </p> */}
               </div>
               <div data-v-4654f51e className='banner-index-poster-box'>
-                <EventCarousel />
-                <div data-v-4654f51e className='banner-index-quotations'>
+                <EventCarousel height={setHeight}/>
+                <div data-v-4654f51e className='banner-index-quotations' id="banner" style={{ height : height }}>
                   <div data-v-4654f51e className='fixed_term'>
                     <div data-v-a2f3dc54 data-v-4654f51e className='rate-wrap'>
                       <div data-v-a2f3dc54 className='rate-inner'>
@@ -2338,7 +2340,7 @@ export default function HomeScreen() {
               </div>
             </div>
           </div>
-          <div class="news common-width">
+          <div class="news">
             <div class="news_wrap">
               <div class="marquee2_wrap marquee2_pr">
                 <div class="marquee2">
