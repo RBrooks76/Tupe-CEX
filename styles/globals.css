@@ -2248,7 +2248,11 @@ header .header-right .header-user .signout i {
     display: none;
   }
 
-  .mobileResponsive header .header-left .more-btn {
+  .mobileResponsive header .header-left .more {
+    display: none;
+  }
+
+  .mobileResponsive header .header-left .dropdown-after {
     display: none;
   }
 
