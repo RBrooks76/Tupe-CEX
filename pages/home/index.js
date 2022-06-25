@@ -255,7 +255,6 @@ export default function HomeScreen() {
             const json_data = json.data;
             window.sessionStorage.setItem("market_websocket", JSON.stringify(json_data));
             trading_list.map(item=>{
-              console.log("-------------------------" + item + "-------------------------");
               const find_data = json_data.find(x=>x.s == item);
               if (find_data !== undefined) {
                 const find_index = trading.findIndex(x=>find_data.s.includes(x.name));
