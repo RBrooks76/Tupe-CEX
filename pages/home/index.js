@@ -269,7 +269,6 @@ export default function HomeScreen() {
                       const pair_find_data = json_data.find(x=>x.s === pair_item.name);
                       if (pair_find_data !== undefined) {
                         Object.keys(pair_find_data).map(key=>{
-                          console.log(pair_find_data[key]);
                           pair[pair_index][key] = parseFloat(pair_find_data[key]);
                         });
                       }
@@ -361,7 +360,7 @@ export default function HomeScreen() {
               </div>
               <div data-v-4654f51e className='banner-index-poster-box'>
                 <EventCarousel height={setHeight}/>
-                <div data-v-4654f51e className='banner-index-quotations' id="banner" style={{ height : height }}>
+                <div data-v-4654f51e className='banner-index-quotations' id="banner" style={{ height : height}}>
                   <div data-v-4654f51e className='fixed_term'>
                     <div data-v-a2f3dc54 data-v-4654f51e className='rate-wrap'>
                       <div data-v-a2f3dc54 className='rate-inner'>
@@ -2486,13 +2485,13 @@ export default function HomeScreen() {
               <table className='trading-table'>
                 <thead>
                   <tr>
-                    <th className="trading-name"><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>Name</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'name' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('name', 'asc')}/><ArrowDropDownIcon style={sortkey === 'name' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('name', 'desc')}/></span></th>
-                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>PRICE($)</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'c' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('c', 'asc')}/><ArrowDropDownIcon style={sortkey === 'c' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('c', 'desc')}/></span></th>
-                    <th className="trading-percent"><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>CHANGE</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'P' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('P', 'asc')}/><ArrowDropDownIcon style={sortkey === 'P' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('P', 'desc')}/></span></th>
-                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>Open</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'o' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('o', 'asc')}/><ArrowDropDownIcon style={sortkey === 'o' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('o', 'desc')}/></span></th>
-                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>High</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'h' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('h', 'asc')}/><ArrowDropDownIcon style={sortkey === 'h' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('h', 'desc')}/></span></th>
-                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>Low</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'l' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('l', 'asc')}/><ArrowDropDownIcon style={sortkey === 'l' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('l', 'desc')}/></span></th>
-                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>24h Volume</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'a' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('a', 'asc')}/><ArrowDropDownIcon style={sortkey === 'a' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('a', 'desc')}/></span></th>
+                    <th className="trading-name"><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>Name</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'name' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('name', 'desc')}/><ArrowDropDownIcon style={sortkey === 'name' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('name', 'desc')}/></span></th>
+                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>PRICE($)</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'c' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('c', 'desc')}/><ArrowDropDownIcon style={sortkey === 'c' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('c', 'desc')}/></span></th>
+                    <th className="trading-percent"><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>CHANGE</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'P' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('P', 'desc')}/><ArrowDropDownIcon style={sortkey === 'P' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('P', 'desc')}/></span></th>
+                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>Open</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'o' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('o', 'desc')}/><ArrowDropDownIcon style={sortkey === 'o' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('o', 'desc')}/></span></th>
+                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>High</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'h' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('h', 'desc')}/><ArrowDropDownIcon style={sortkey === 'h' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('h', 'desc')}/></span></th>
+                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>Low</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'l' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('l', 'desc')}/><ArrowDropDownIcon style={sortkey === 'l' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('l', 'desc')}/></span></th>
+                    <th className="trading-change "><span style={{marginRight: 15}}  onClick={()=>sort('', '')}>24h Volume</span><span style={arrow}><ArrowDropUpIcon style={sortkey === 'p' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('a', 'desc')}/><ArrowDropDownIcon style={sortkey === 'a' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('a', 'desc')}/></span></th>
                   </tr>
                 </thead>
                 <tbody>
