@@ -260,7 +260,7 @@ export default function HomeScreen() {
                   if ((now_time % 4 == 0 && trading[find_index].s !== undefined) || trading[find_index].s === undefined) {
                     Object.keys(find_data).map(key=>{
                       if (!loaded) setLoaded(true);
-                      trading[find_index][key] = find_data[key];
+                      trading[find_index][key] = pareseFloat(find_data[key]);
                     });
                   }
                   const pair = trading[find_index].pair;
