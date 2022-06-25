@@ -84468,6 +84468,18 @@ input[type=password] {
   .rate-item span{
     font-size : 93%;
   }
+
+  .news .news_wrap .marquee2_pl{
+    display : none;
+  }
+
+  .news .news_wrap .marquee2{
+    width : 140%
+  }
+
+  .news .news_wrap .marquee2 .date{
+    display : none;
+  }
 }
 
 

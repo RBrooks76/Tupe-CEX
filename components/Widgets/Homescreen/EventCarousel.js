@@ -59,8 +59,9 @@ const EventCarousel = ({height}) => {
 
   useEffect(() => {
     var image = getHeight();
+    console.log(image);
     height(image);
-  }, [])
+  }, []);
 
   return (
   <div data-v-4654f51e className='banner-index-poster' style={{background:"gray", height:'100%'}} id="image" ref={inputRef}>

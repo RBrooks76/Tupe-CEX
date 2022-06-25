@@ -222,8 +222,8 @@ export default function HomeScreen() {
   };
 
   useEffect(()=>{
-    
-  }, [height]);
+
+  }, []);
 
   useEffect(() => {
     const localToken = localStorage.getItem('token');
@@ -269,6 +269,7 @@ export default function HomeScreen() {
                       const pair_find_data = json_data.find(x=>x.s === pair_item.name);
                       if (pair_find_data !== undefined) {
                         Object.keys(pair_find_data).map(key=>{
+                          console.log(pair_find_data[key]);
                           pair[pair_index][key] = parseFloat(pair_find_data[key]);
                         });
                       }
