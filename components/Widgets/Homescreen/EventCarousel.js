@@ -19,15 +19,15 @@ const EventCarousel = ({height}) => {
 
   const inputRef = useRef(0);
 
-  function getWidth(){
+  const getHeight = () => {
     // var height = document.getElementById('image').clientHeight;
     var height = inputRef.current.clientHeight;
     return height;
   }
 
-  function useCurrentWidth() {
+  const useCurrentWidth = () => {
     // save current window width in the state object
-    let [width, setWidth] = useState(getWidth());
+    let [width, setWidth] = useState(getHeight());
   
     // in this case useEffect will execute only once because
     // it does not have any dependencies.
@@ -38,7 +38,7 @@ const EventCarousel = ({height}) => {
         // prevent execution of previous setTimeout
         clearTimeout(timeoutId);
         // change width from the state object after 150 milliseconds
-        timeoutId = setTimeout(() => setWidth(getWidth()), 150);
+        timeoutId = setTimeout(() => setWidth(getHeight()), 150);
       };
       // set resize listener
       window.addEventListener('resize', resizeListener);
@@ -53,12 +53,13 @@ const EventCarousel = ({height}) => {
     return width;
   }
   
-  var iHeight = useCurrentWidth();
-  console.log(iHeight);
+  var iHeight = 0;
+  iHeight = useCurrentWidth();
   height(iHeight);
 
   useEffect(() => {
-    // console.log(getWidth());
+    var image = getHeight();
+    height(image);
   }, [])
 
   return (
