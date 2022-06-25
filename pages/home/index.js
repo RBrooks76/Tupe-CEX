@@ -293,11 +293,9 @@ export default function HomeScreen() {
     //   setSortKey('');
     //   setSortOrder('');
     // } else {
-    //   setSortKey(key);
-    //   setSortOrder(order);
-    // }
-
-    setSortKey(key)
+      // setSortKey(key)
+      // setSortOrder(order);
+      setSortKey(key)
       if(sortorder == "asc" && order == "asc")
         setSortOrder("desc");
       else if(sortorder == "desc" && order == "desc")
@@ -306,6 +304,9 @@ export default function HomeScreen() {
       {
         setSortOrder(order);
       }
+
+
+    // }
   };
 
   const commonWidthStyle = {
@@ -2528,8 +2529,8 @@ export default function HomeScreen() {
                     <th className="trading-change ">
                       <span style={{marginRight: 15}}  onClick={()=>sort('', '')}>24h Volume</span>
                       <span style={arrow}>
-                        <ArrowDropUpIcon style={sortkey === 'p' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('a', 'asc')}/>
-                        <ArrowDropDownIcon style={sortkey === 'p' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('a', 'desc')}/>
+                        <ArrowDropUpIcon style={sortkey === 'p' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('p', 'asc')}/>
+                        <ArrowDropDownIcon style={sortkey === 'p' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('p', 'desc')}/>
                       </span>
                     </th>
                   </tr>
