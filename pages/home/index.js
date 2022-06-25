@@ -13,6 +13,8 @@ import {isNil, orderBy} from "lodash";
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
+import JSONDATA from './data.json';
+
 const arrow = {
   position: 'relative',
   right: '15px'
@@ -231,10 +233,9 @@ export default function HomeScreen() {
 
     const trading_list = ['ETHUSDT', 'BTCUSDT', 'SHIBUSDT', 'DOTUSDT', 'GALAUSDT'];
 
-    // if (!localToken) {
-    //   router.push('/');
-    // }
-
+    if (!localToken) {
+      router.push('/');
+    }
 
     const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
     const isBrowser = typeof window !== "undefined";
@@ -247,26 +248,29 @@ export default function HomeScreen() {
 
       ws.onmessage = function (event) {
         const json = JSON.parse(event.data);
+
+      // var json = JSONDATA;
         try {
           if (json.data !== undefined) {
             const json_data = json.data;
             window.sessionStorage.setItem("market_websocket", JSON.stringify(json_data));
             trading_list.map(item=>{
+              console.log("-------------------------" + item + "-------------------------");
               const find_data = json_data.find(x=>x.s == item);
               if (find_data !== undefined) {
                 const find_index = trading.findIndex(x=>find_data.s.includes(x.name));
+                // console.log("Find Index : " + find_index);
                 if (find_index > -1) {
                   const now_time = new Date().getTime();
                   if ((now_time % 4 == 0 && trading[find_index].s !== undefined) || trading[find_index].s === undefined) {
                     Object.keys(find_data).map(key=>{
                       if (!loaded) setLoaded(true);
-                      trading[find_index][key] = pareseFloat(find_data[key]);
+                      trading[find_index][key] = parseFloat(find_data[key]);
                     });
                   }
                   const pair = trading[find_index].pair;
                   if (pair !== undefined) {
                     pair.map((pair_item, pair_index)=>{
-                      console.log("pair", pair);
                       const pair_find_data = json_data.find(x=>x.s === pair_item.name);
                       if (pair_find_data !== undefined) {
                         Object.keys(pair_find_data).map(key=>{
@@ -281,7 +285,7 @@ export default function HomeScreen() {
             });
           }
         } catch (err) {
-          console.log(err);
+          console.log("ERROR");
         }
       };
     }
@@ -321,6 +325,10 @@ export default function HomeScreen() {
     width: 'inherit',
   };
   const sortedCoins = orderBy(trading, sortkey, sortorder);
+
+  // console.log(sortedCoins);
+  // console.log(sortkey, sortorder);
+  // console.log(sortedCoins);
 
   function gotoPage () {
     window.location = '/exchange';
