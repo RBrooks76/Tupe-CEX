@@ -233,9 +233,9 @@ export default function HomeScreen() {
 
     const trading_list = ['ETHUSDT', 'BTCUSDT', 'SHIBUSDT', 'DOTUSDT', 'GALAUSDT'];
 
-    if (!localToken) {
-      router.push('/');
-    }
+    // if (!localToken) {
+    //   router.push('/');
+    // }
 
     const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
     const isBrowser = typeof window !== "undefined";
