@@ -13,7 +13,7 @@ import {isNil, orderBy} from "lodash";
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-import JSONDATA from './data.json';
+// import JSONDATA from './data.json';
 
 const arrow = {
   position: 'relative',
@@ -284,7 +284,7 @@ export default function HomeScreen() {
             });
           }
         } catch (err) {
-          console.log("ERROR");
+          console.log(err);
         }
       };
     }
@@ -308,9 +308,6 @@ export default function HomeScreen() {
       {
         setSortOrder(order);
       }
-
-
-    // }
   };
 
   const commonWidthStyle = {
