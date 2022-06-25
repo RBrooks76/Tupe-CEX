@@ -252,7 +252,6 @@ export default function HomeScreen() {
             const json_data = json.data;
             window.sessionStorage.setItem("market_websocket", JSON.stringify(json_data));
             trading_list.map(item=>{
-              console.log(trading_list);
               const find_data = json_data.find(x=>x.s == item);
               if (find_data !== undefined) {
                 const find_index = trading.findIndex(x=>find_data.s.includes(x.name));
@@ -267,6 +266,7 @@ export default function HomeScreen() {
                   const pair = trading[find_index].pair;
                   if (pair !== undefined) {
                     pair.map((pair_item, pair_index)=>{
+                      console.log("pair", pair);
                       const pair_find_data = json_data.find(x=>x.s === pair_item.name);
                       if (pair_find_data !== undefined) {
                         Object.keys(pair_find_data).map(key=>{
