@@ -24,11 +24,13 @@ const EventCarousel = ({height}) => {
     var height = inputRef.current.clientHeight;
     return height;
   }
+  const getWidth = () => {
+    return window.innerWidth;
+  }
 
   const getAdjustedFontSize = (param) => {
     var devide = 60;
     if (window.innerWidth < 400) devide = 70;
-
     return (parseFloat(window.innerWidth) / devide + (param?param:0))+ 'px';
   }
 
@@ -47,8 +49,8 @@ const EventCarousel = ({height}) => {
         // change width from the state object after 150 milliseconds
         timeoutId = setTimeout(() => {
           setWidth(getHeight());
-          if (getAdjustedFontSize() > 700) return;
-          //.rate-item
+          if (parseFloat(getAdjustedFontSize().replace('px','')) > 700) return;
+            //.rate-item
           console.log(getAdjustedFontSize());
           let sizeArr = document.querySelectorAll('._auto_size, .quotation-title.font-bold');
           for (let i = 0; i < sizeArr.length; i++) {
@@ -66,6 +68,7 @@ const EventCarousel = ({height}) => {
             element.style.width = getAdjustedFontSize();
             element.style.height = getAdjustedFontSize();
           }
+        
         }, 150);
       };
       // set resize listener

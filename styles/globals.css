@@ -84525,9 +84525,13 @@ input[type=password] {
   }
 }
 
-@media (min-width : 1280px){
+@media screen and (min-width : 1280px){
   .banner-index-content .banner-index-poster-box{
     height: 100%;
+  }
+
+  .rate-marquee2 .rate-item-content2 ._auto_size{
+    font-size : 21px!important;
   }
 } 
 
@@ -84684,7 +84688,8 @@ input[type=password] {
 }
 
 .rate-wrap .rate-marquee2, .rate-wrap .rate-marquee {
-  overflow: visible !important;
+  /* overflow-x: visible !important;
+  overflow-y: hidden !important; */
 }
 
 @media screen and (max-width: 700px) {
