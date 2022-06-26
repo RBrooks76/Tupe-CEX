@@ -286,8 +286,8 @@ export default function HomeScreen() {
         } catch (err) {
           console.log(err);
         }
-    //   };
-    // }
+      };
+    }
 
     document.body.setAttribute('style', 'min-width: auto;');
   }, []);
