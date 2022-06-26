@@ -13,7 +13,7 @@ import {isNil, orderBy} from "lodash";
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-import JSONDATA from './data.json';
+// import JSONDATA from './data.json';
 
 const arrow = {
   position: 'relative',
@@ -237,19 +237,19 @@ export default function HomeScreen() {
     //   router.push('/');
     // }
 
-    // const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
-    // const isBrowser = typeof window !== "undefined";
-    // const ws = isBrowser ? new WebSocket(url) : null;
-    // if (!isNil(ws)) {
-    //   ws.onopen = (event) => {
-    //   };
-    //   ws.onclose = function (eventclose) {
-    //   };
+    const url = 'wss://stream.binance.com:9443/stream?streams=!ticker@arr@3000ms';
+    const isBrowser = typeof window !== "undefined";
+    const ws = isBrowser ? new WebSocket(url) : null;
+    if (!isNil(ws)) {
+      ws.onopen = (event) => {
+      };
+      ws.onclose = function (eventclose) {
+      };
 
-    //   ws.onmessage = function (event) {
-    //     const json = JSON.parse(event.data);
+      ws.onmessage = function (event) {
+        const json = JSON.parse(event.data);
 
-      var json = JSONDATA;
+      // var json = JSONDATA;
         try {
           if (json.data !== undefined) {
             const json_data = json.data;
