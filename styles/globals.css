@@ -44639,7 +44639,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 .banner-index .banner-txt p[data-v-4654f51e]:first-of-type, .banner-index .banner-txt p[data-v-4654f51e]:nth-of-type(2) {
-    font-size: 44px;
+    /* font-size: 44px; */
     font-weight: 700;
     line-height: 60px;
     overflow: hidden;
@@ -84603,7 +84603,7 @@ input[type=password] {
   margin-right : 10px;
 } */
 
-@media(min-width : 500px) and (max-width:630px){
+@media(min-width : 400px) and (max-width:630px){
   .index-page .markets-data div{
     width : 100%!important;
   }
@@ -84635,6 +84635,9 @@ input[type=password] {
 }
 
 @media(max-width : 500px){
+  .tooltip{
+    padding-left : 0px;
+  }
  
   .index-page .markets-data div{
     width : 100%!important;
@@ -84726,3 +84729,7 @@ input[type=password] {
     display : none;
   }
 } */
+
+.tooltipArea{
+  padding : 0px 10px;
+}

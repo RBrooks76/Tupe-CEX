@@ -34,6 +34,11 @@ const EventCarousel = ({height}) => {
     return (parseFloat(window.innerWidth) / devide + (param?param:0))+ 'px';
   }
 
+  const getBannerFontSize = () => {
+    var devide = 30;
+    return (parseFloat(window.innerWidth) / devide)+ 'px';
+  }
+
   const useCurrentWidth = () => {
     // save current window width in the state object
     let [width, setWidth] = useState(getHeight());
@@ -68,7 +73,14 @@ const EventCarousel = ({height}) => {
             element.style.width = getAdjustedFontSize();
             element.style.height = getAdjustedFontSize();
           }
+
+          document.querySelector('.bannerTxt').style.fontSize = getBannerFontSize();
         
+          let tooltip = document.querySelector('.tooltipArea');
+          if(tooltip){
+            tooltip.style.left = getBannerFontSize();
+          }
+
         }, 150);
       };
       // set resize listener
