@@ -376,7 +376,7 @@ export default function HomeScreen() {
                               APY of Investment Products
                             </div>
                           </div>
-                          <div data-v-a2f3dc54 className='rate-marquee2 col-xs-6 col-md-6 col-sm-6'>
+                          <div data-v-a2f3dc54 className='rate-marquee2'>
                             <ul data-v-a2f3dc54 className='item-list3'>
                               <li data-v-a2f3dc54='' className='rate-item'>
                                 <div data-v-a2f3dc54='' className='rate-item-content2'>
@@ -388,35 +388,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -432,13 +411,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                     <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
                                     </span>
                                   </span>
+                                 
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -454,35 +434,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -498,35 +457,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -542,13 +480,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                     <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
                                     </span>
                                   </span>
+                                 
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -564,35 +503,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -608,35 +526,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -652,13 +549,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                     <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
                                     </span>
                                   </span>
+                                 
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -674,35 +572,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -718,35 +595,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -762,13 +618,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                     <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
                                     </span>
                                   </span>
+                                 
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -784,35 +641,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -828,35 +664,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -872,13 +687,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                     <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
                                     </span>
                                   </span>
+                                 
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -894,35 +710,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -938,35 +733,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -982,13 +756,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                     <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
                                     </span>
                                   </span>
+                                 
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -1004,35 +779,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -1048,13 +802,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
+                                  </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -1070,13 +825,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                     <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
                                     </span>
                                   </span>
+                                 
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -1092,13 +848,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
+                                  </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -1114,13 +871,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
+                                  </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -1136,13 +894,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                     <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
                                     </span>
                                   </span>
+                                 
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>
@@ -1158,1179 +917,14 @@ export default function HomeScreen() {
                                       srcSet=''
                                       className='rate-icon2'
                                     />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
+                                    <span data-v-a2f3dc54='' className='text symbol _auto_size'>
                                       ATOM
-                                    </span>
                                   </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
-                                  </span>
-                                  <a data-v-a2f3dc54='' href='/invest' className='sdf'>
-                                    <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
-                                      10.67%
-                                    </span>
-                                  </a>
-                                </div>
-                              </li>
-                              <li data-v-a2f3dc54='' className='rate-item'>
-                                <div data-v-a2f3dc54='' className='rate-item-content2'>
-                                  <span data-v-a2f3dc54=''>
-                                    <img
-                                      data-v-a2f3dc54=''
-                                      src='https://upload-hotbit-io.oss-ap-southeast-1.aliyuncs.com/files/NEW_ATOM_LOGO.png'
-                                      alt=''
-                                      srcSet=''
-                                      className='rate-icon2'
-                                    />
-                                    <span data-v-a2f3dc54='' className='text symbol'>
-                                      ATOM
-                                    </span>
                                   </span>
+                                  
                                   <a data-v-a2f3dc54='' href='/invest' className='sdf'>
                                     <span data-v-a2f3dc54='' className='text' />
-                                    <span data-v-a2f3dc54='' className='vam'>
+                                    <span data-v-a2f3dc54='' className='vam _auto_size'>
                                       10.67%
                                     </span>
                                   </a>

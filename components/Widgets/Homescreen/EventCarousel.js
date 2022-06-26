@@ -25,6 +25,13 @@ const EventCarousel = ({height}) => {
     return height;
   }
 
+  const getAdjustedFontSize = (param) => {
+    var devide = 60;
+    if (window.innerWidth < 400) devide = 70;
+
+    return (parseFloat(window.innerWidth) / devide + (param?param:0))+ 'px';
+  }
+
   const useCurrentWidth = () => {
     // save current window width in the state object
     let [width, setWidth] = useState(getHeight());
@@ -38,15 +45,38 @@ const EventCarousel = ({height}) => {
         // prevent execution of previous setTimeout
         clearTimeout(timeoutId);
         // change width from the state object after 150 milliseconds
-        timeoutId = setTimeout(() => setWidth(getHeight()), 150);
+        timeoutId = setTimeout(() => {
+          setWidth(getHeight());
+          if (getAdjustedFontSize() > 700) return;
+          //.rate-item
+          console.log(getAdjustedFontSize());
+          let sizeArr = document.querySelectorAll('._auto_size, .quotation-title.font-bold');
+          for (let i = 0; i < sizeArr.length; i++) {
+            let element = sizeArr[i];
+            element.style.fontSize = getAdjustedFontSize();
+          }
+          let lineArr = document.querySelectorAll('li.rate-item');
+          for (let i = 0; i < lineArr.length; i++) {
+            let element = lineArr[i];
+            element.style.height = getAdjustedFontSize(2);
+          }
+          let imgArr = document.querySelectorAll('.rate-icon2');
+          for (let i = 0; i < imgArr.length; i++) {
+            let element = imgArr[i];
+            element.style.width = getAdjustedFontSize();
+            element.style.height = getAdjustedFontSize();
+          }
+        }, 150);
       };
       // set resize listener
       window.addEventListener('resize', resizeListener);
+      window.addEventListener('load', resizeListener);
   
       // clean up function
       return () => {
         // remove resize listener
         window.removeEventListener('resize', resizeListener);
+        window.removeEventListener('load', resizeListener);
       }
     }, [])
   
