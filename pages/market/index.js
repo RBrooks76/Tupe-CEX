@@ -426,9 +426,9 @@ const MarketScreen = ({coins}) => {
           var find_index = tempData.findIndex(x=>find_data.symbol.toLowerCase().includes(x.symbol.toLowerCase()));
           if(find_index > -1){
             find_data['display_name'] = (tempItem.symbol.toLowerCase() + '/' + pairItem.toLowerCase()).toUpperCase();
-            find_data['c'] = find_data['lastPrice'];
-            find_data['P'] = find_data['priceChangePercent'];
-            find_data['p'] = find_data['volume'];
+            find_data['c'] = reduceDecimal(find_data['lastPrice']);
+            find_data['P'] = reduceDecimal(find_data['priceChangePercent']);
+            find_data['p'] = reduceDecimal(find_data['volume']);
             tempItem.pair.push(find_data);
             cnt++;
           }
@@ -437,9 +437,9 @@ const MarketScreen = ({coins}) => {
       var temp = {};
       if(cnt == 0){
         temp['display_name'] = (tempItem.symbol.toLowerCase() + '/' + "usd").toUpperCase();
-        temp['c'] = tempItem['current_price'];
-        temp['P'] = tempItem['price_change_percentage_24h'];
-        temp['p'] = tempItem['total_volume'];
+        temp['c'] = reduceDecimal(tempItem['current_price']);
+        temp['P'] = reduceDecimal(tempItem['price_change_percentage_24h']);
+        temp['p'] = reduceDecimal(tempItem['total_volume']);
         tempItem.pair.push(temp);
       }
     })
