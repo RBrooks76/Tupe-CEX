@@ -1242,6 +1242,7 @@ header .header-right .mobile-tab-trigger {
 
 header .mobile-tabs .closeBtn {
   font-size: 3rem;
+  color : black!important;
 }
 
 header .mobile-tabs .registerBtn {
@@ -84594,10 +84595,6 @@ input[type=password] {
 
 }
 
-.header .header-right .mobile-tabs{
-  background: #333;
-}
-
 /* .trading-table thead tr th span:first-child{
   font-size : 100%;
   margin-right : 10px;
@@ -84732,4 +84729,12 @@ input[type=password] {
 
 .tooltipArea{
   padding : 0px 10px;
+}
+
+.header-right .mobile-tab-trigger{
+  background-color: #12161c!important;
+}
+
+.material-icons{
+  color: white;
 }
