@@ -86,55 +86,59 @@ const MarketScreen = ({coins}) => {
   const [filterCoin, setFilterCoins] = useState([])
 
   const reduceDecimal = (item) => {
-    let dnum = item < 0 ? item - Math.ceil(item) : item - Math.floor(item);
-    let num = item - dnum;
-    let str = dnum < 0 ? String(dnum).slice(3) : String(dnum).slice(2);
-    let array = str.split('');
-    let index = 0;
-    let value = '';
-    let result = 0;
-    if(array.length != 0){
-      for(var i = 0 ; i < array.length; i++){
-        if(array[i] != 0) {
-          index = i;
-          break;
-        }else {
-          index = 0;
-        }
-      }
+    console.log(item);
+    var item_tempString = String(item);
+    var item_tempArray = [];
+    var index = 0;
+    var count = 3;
+
+    if(item_tempString.includes('e-')){
+        console.log("############################");
+        item_tempString = remove(item_tempString);
+        item_tempArray = item_tempString.split('');
+        console.log("--------------------------");
     } else {
-      // return item+'.00';
+      item_tempArray = item_tempString.split('');
     }
-    
-    
-    if(num <= 0){
-      item = String(item);
-      if(!item.includes('e')){
-        for (var j = index; j < index + 3; j++) {
-          value += '' + (array[j] != null ? array[j] : '');
-        }
-  
-        var lll = '';
-        for(var l = 0; l < index; l++){
-          lll += '0';
-        }
-        result = num + '.' + lll + value;
-        item = parseFloat(result);
+
+    for(var i = item_tempString.indexOf('.') + 1; i < item_tempArray.length; i++ ){
+      if(item_tempArray[i] != 0){
+        index = i;
+        break;
       } else {
-        item = item;
+        index = 0;
       }
-        
-    } else {
-      for (var k = index; k < index + 2; k++) {
-        value += '' + (array[k] != null ? array[k] : '');
-      }
-      result = num + '.' + value;
-      item = parseFloat(result);
     }
-    return item;
+
+    var subString = '';
+    if(index > 0) subString = item_tempString.substr(0, index + count);
+    else subString = item_tempString;
+    console.log(subString);
+    return subString;
+
+  }
+
+  function remove(x) {
+    var item = x;
+    if (Math.abs(x) < 1.0) {
+      var e = parseInt(x.toString().split('e-')[1]);
+        if (e) {
+          x *= Math.pow(10, e-1);
+          x = item > 0 ? '0.' + (new Array(e)).join('0') + x.toString().substring(2) : '-0.' + (new Array(e)).join('0') + x.toString().substring(3);
+        }
+    } else {
+      var e = parseInt(x.toString().split('+')[1]);
+      if (e > 20) {
+          e -= 20;
+          x /= Math.pow(10,e);
+          x += (new Array(e+1)).join('0');
+      }
+    }
+    return x;
   }
 
   const apiFunction = async () => {
+
 
     var all_coins = [];
     var all_symbols = [];
