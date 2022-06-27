@@ -1131,8 +1131,8 @@ export default function HomeScreen() {
                     <th className="trading-change ">
                       <span onClick={()=>sort('', '')}>24h Volume</span>
                       <span style={arrow}>
-                        <ArrowDropUpIcon style={sortkey === 'p' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('p', 'asc')}/>
-                        <ArrowDropDownIcon style={sortkey === 'p' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('p', 'desc')}/>
+                        <ArrowDropUpIcon style={sortkey === 'a' && sortorder === 'asc' ? selectedArrowUp : arrowup} onClick={()=>sort('a', 'asc')}/>
+                        <ArrowDropDownIcon style={sortkey === 'a' && sortorder === 'desc' ? selectedArrowDown : arrowdown} onClick={()=>sort('a', 'desc')}/>
                       </span>
                     </th>
                   </tr>
@@ -1158,7 +1158,7 @@ export default function HomeScreen() {
                           <td className='trading-change'>{reduceDecimal(item.o)}</td>
                           <td className='trading-change'>{reduceDecimal(item.h)}</td>
                           <td className='trading-change'>{reduceDecimal(item.l)}</td>
-                          <td className='trading-change'>{reduceDecimal(item.p)}</td>
+                          <td className='trading-change'>{reduceDecimal(item.a)}</td>
                         </tr>
                       </OverlayTrigger>
                     ))}
